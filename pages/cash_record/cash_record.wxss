@@ -1,0 +1,125 @@
+/* pages/cash_record/cash_record.wxss */
+page{
+  background: #f8f8f8;
+}
+/* 无订单 */
+
+.no_order {
+  width: 40%;
+  /* height: 200rpx; *//* border: 1px solid red; */
+  margin: 0 auto;
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.no_order_top {
+  color: #6a6a6a;
+  font-size: 30rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+}
+
+.no_order_center {
+  color: #989898;
+  font-size: 24rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  margin-bottom: 35rpx;
+}
+
+.no_order_bottom {
+  color: #e16d20;
+  width: 195rpx;
+  text-align: center;
+  font-size: 28rpx;
+  border: 1px solid #e16d20;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 10rpx;
+}
+.company_remark_if{
+position: absolute;
+  bottom: 10vh;
+  left: 0;
+width: 100%;
+text-align: center;
+height: 60rpx;
+line-height: 60rpx;
+color: #c2c2c2;
+font-size: 26rpx;
+background: #f9f9f9;
+}
+
+/*  */
+.company_remark{
+width: 100%;
+text-align: center;
+height: 60rpx;
+line-height: 60rpx;
+color: #c2c2c2;
+font-size: 26rpx;
+margin: 20rpx 0;
+/* background: #f9f9f9; */
+}
+.more_data{
+  text-align: center;
+  font-size: 26rpx;
+  color: #696767;
+  margin-top: 15rpx;
+}
+::-webkit-scrollbar{
+width: 0;
+height: 0;
+color: transparent;
+}
+.integral_bottom{
+  width: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.integral_bottom_null{
+  width: 100%;
+  height: 200rpx;
+  line-height: 200rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #b1b1b1;
+}
+.integral_list{
+  width:94%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+ padding: 10rpx 0;
+  margin-bottom: 10rpx;
+  color: #5e5d5d;
+  border-bottom: 1px solid #ddd;
+}
+.integral_list_left{
+  display: flex;
+  flex-direction: column;
+}
+.integral_source_name{
+  margin-bottom: 10rpx;
+  font-size: 28rpx;
+}
+.integral_create_time{
+  font-size: 26rpx;
+}
+.integral_list_right{
+  
+  text-align: center;
+}
+.integral_list_right view:first-child{
+font-size: 30rpx;
+  color: #fe6505;
+}
+.integral_list_right view:last-child{
+  font-size: 22rpx;
+  color: red;
+}

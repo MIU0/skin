@@ -1,0 +1,91 @@
+/* pages/my_fenxiao/my_fenxiao.wxss */
+page{
+  background: #f8f8f8;
+  
+}
+.fx_list{
+  width:94%;
+  height: 173rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+   margin-bottom: 15rpx;
+   padding: 0 18rpx;
+  }
+  .fx_list_left{
+    width: 100%;
+    height: 100%;
+    /* background: pink; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .fx_list_left image{
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+    margin-right: 16rpx;
+  }
+.list_left_right{
+  font-size: 26rpx;
+}
+.list_left_right view:last-child{
+  color: #a7a7a7;
+  margin-top: 10rpx;
+}
+.fx_list_right{
+  display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+/* 无订单 */
+
+.no_order {
+  width: 40%;
+  /* height: 200rpx; *//* border: 1px solid red; */
+  margin: 0 auto;
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.no_order_top {
+  color: #6a6a6a;
+  font-size: 30rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+}
+
+.no_order_center {
+  color: #989898;
+  font-size: 24rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  margin-bottom: 35rpx;
+}
+
+.no_order_bottom {
+  color: #e16d20;
+  width: 195rpx;
+  text-align: center;
+  font-size: 28rpx;
+  border: 1px solid #e16d20;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 10rpx;
+}
+.company_remark_if{
+position: absolute;
+  bottom: 10vh;
+  left: 0;
+width: 100%;
+text-align: center;
+height: 60rpx;
+line-height: 60rpx;
+color: #c2c2c2;
+font-size: 26rpx;
+background: #f9f9f9;
+}

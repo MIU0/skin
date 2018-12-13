@@ -1,0 +1,28 @@
+<!--pages/cash/cash.wxml-->
+<form bindsubmit="formSubmit">
+<view class='cash_all'>
+  <view class='cash_con'>
+    <view class='cash_con_title'>提现金额</view>
+    <view class='cash_con_price'>
+      <text>￥</text>
+      <input name='price' value='{{price}}' placeholder='请输入金额'/>
+    </view>
+    <view class='cash_con_hint'>
+      <view>本次可体现￥{{balance}}，</view>
+      <view bindtap='all_cash'>全部提现</view>
+    </view>
+    <view class='cash_select'>
+      <radio-group class="radio-group"  >
+        <label class="radio" wx:for="{{items}}" bindtap="radio_select" data-index='{{index}}'>
+          <radio value="{{item.name}}" checked="{{item.checked}}"  />{{item.value}}
+        </label>
+      </radio-group>
+    </view>
+     <view class='cash_con_num'>
+      <text>账号:</text>
+      <input name='account' placeholder='请输入账号' />
+    </view>
+    <button class='cash_bottom' form-type='submit'>提现</button>
+  </view>
+</view>
+</form>

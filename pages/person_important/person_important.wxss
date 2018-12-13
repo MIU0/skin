@@ -1,0 +1,61 @@
+page{
+  background: #f8f8f8;
+  position: relative;
+  /* border: 1px solid red; */
+  height: 100vh;
+
+}
+.person_important{
+  width: 90%;
+  height: 500rpx;
+  background: #fff;
+  margin: auto;
+  margin-top: 38rpx;
+  border-radius:10px; 
+}
+.person_important_top{
+  /* border: 1px solid red; */
+  width: 90%;
+  height: 322rpx;
+  border-radius: 10px;
+  margin: auto;
+   background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+}
+.card_name_big{
+  color: #cbdde6;
+  font-size:29rpx;
+  margin-top: 46rpx;
+  margin-left: 21rpx;
+  letter-spacing: 4rpx;
+}
+.card_name_small{
+  color: #cbdde6;
+  font-size: 24rpx;
+  margin-top: 164rpx;
+  margin-left: 17rpx;
+  letter-spacing: 4rpx;
+}
+
+.person_important_bottom{
+  width: 90%;
+  height: 100rpx;
+  line-height: 100rpx;
+  margin: auto;
+  font-size: 30rpx;
+}
+.company_remark{
+  position: absolute;
+width: 100%;
+text-align: center;
+height: 60rpx;
+line-height: 60rpx;
+color: #c2c2c2;
+font-size: 26rpx;
+background: #f9f9f9;
+padding: 20rpx 0;
+bottom:5vh;
+left: 0;
+}

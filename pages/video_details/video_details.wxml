@@ -1,0 +1,58 @@
+<view class='video_details_all'>
+  <view data-id='{{item.translate_id}}' class='course-pannle-item'>
+    <view class='video-item'>
+      <video wx:if='{{0==playIndex}}' id='video{{0}}' autoplay='{{true}}' show-center-play-btn="{{false}}" src='{{courseList.translate_url}}' controls="true" objectFit="cover">
+      </video>
+      <image class='video-cover' wx:if='{{0!=playIndex}}' mode='widthFix' src='{{courseList.img_url}}'></image>
+      <image class='video-play-btn' wx:if='{{0!=playIndex}}' mode='widthFix' data-index='0' bindtap='videoPlay' src='../../images/vedio.png'></image>
+    </view>
+
+    <view class='view_details_con'>
+      <view class='details_content'>
+        <view class='details_content_left'>
+          <view class='content_left_top'>{{courseList.translate_name}}</view>
+          <view class='content_left_center'>栾树画室</view>
+          <view class='content_left_bottom'>
+            <view class='content_left_time'>{{courseList.create_time}}</view>
+            <view class='content_left_num'>{{courseList.video_num}}人订购</view>
+          </view>
+        </view>
+        <view class='details_content_right'>
+          <view class='details_content_right_con'>
+            <view class='details_content_right_img'>
+            <button class='shop_share_btn' open-type="share">
+             <image class='details_content_right_img' src='../../images/video_details_lw.png'></image>
+            </button>
+             
+            </view>
+            <view class='details_content_right_text'>请好友看</view>
+          </view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+  <view class='view_details_leave_line' bindtap='leave_text' data-id='{{courseList.translate_id}}' data-reserved1='{{courseList.reserved1}}'>
+    <view class='view_details_leave'>
+      写留言</view>
+    <image class='view_details_leave_img' src='../../images/leave_pencil.png'></image>
+  </view>
+</view>
+<!-- 页面底部 -->
+<view class='video_details_bottom' wx:if='{{discover==0}}'>
+  <view class='video_details_bottom_left_all'>
+  <button class="kf_button" open-type="contact" session-from="weapp">
+  <image src='../../images/chat_red.png' mode='widthFix'></image>
+  </button> 
+    <view class='video_details_bottom_left'>客服</view>
+  </view>
+  <view class='video_details_bottom_right' bindtap='video_pay' data-id='{{courseList.translate_id}}'>
+    购买内容￥{{courseList.price}}
+  </view>
+</view>
+<!-- <loading style='background:black;' hidden="{{hidden}}">
+        加载中...
+    </loading> -->
+<!-- 遮罩层 -->
+<view class='cover_video' catchtouchmove="preventTouchMove" catchtap='cover_video' wx:if='{{cover_close}}'></view>
+<view class='cover_video_text' wx:if='{{cover_close}}'>该视频为付费视频，购买后即可观看</view>

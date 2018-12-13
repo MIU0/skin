@@ -1,0 +1,271 @@
+page {
+  background: #f4f4f4;
+}
+
+.person_all {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.person_top {
+  width: 100%;
+  height: 18vh;
+  position: relative;
+}
+
+.person_top_back {
+  width: 100%;
+  height: 100%;
+}
+
+.person_top_back image {
+  width: 100%;
+  height: 100%;
+}
+
+.person_top_con {
+  position: absolute;
+  top:0;
+  left: 0;
+  bottom: 0;
+ right:0;
+ margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.person_top_con_img {
+  width: 118rpx;
+  height: 118rpx;
+}
+
+.person_top_con_img image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px solid #fff;
+}
+
+.person_top_con_name {
+  height: 100%;
+  font-size: 30rpx;
+}
+
+.person_info {
+  width: 100%;
+  height: 150rpx;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.my_balance {
+  width: 25%;
+  height: 80%;
+}
+
+.balance {
+  width: 100%;
+  text-align: center;
+  font-size: 28rpx;
+}
+
+.balance_num {
+  color: #dc5b48;
+  margin-top: 20rpx;
+}
+
+.balance_name {
+  margin-top: 10rpx;
+}
+
+.my_order {
+  width: 100%;
+  height: 254rpx;
+  background: #fff;
+  margin-bottom: 10rpx;
+}
+
+.my_order_type {
+  width: 94%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.my_order_type_title {
+  width: 100%;
+  height: 80rpx;
+  border-bottom: 1px solid #f1f1f1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 28rpx;
+}
+.gongju{
+  width: 94%;
+  padding: 0 20rpx;
+  background: #fff
+}
+.type_title_right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #acacac;
+  font-size: 28rpx;
+}
+
+.right_one {
+  width: 18rpx;
+  height: 30rpx;
+  margin-left: 20rpx;
+}
+
+.right_one image {
+  width: 100%;
+  height: 100%;
+}
+
+.order_list {
+  width: 100%;
+  height: 144rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.order_type {
+  width: 20%;
+  height: 100%;
+}
+
+.type_con {
+  width: 100%;
+  height: 50%;
+  text-align: center;
+ position: relative;
+}
+.type_con_num{
+ color: #fff;
+ width: 25rpx;
+ height: 25rpx;
+ background: red;
+ border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+ position: absolute;
+ z-index: 1000;
+ font-size: 18rpx;
+ right:34rpx;
+ top:20rpx;
+}
+.type_img {
+  width: 35%;
+  height: 61%;
+  margin: 0 auto;
+  margin-top: 29rpx;
+  
+}
+
+.type_name {
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 70rpx;
+}
+
+.my_person_other {
+  width: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.my_person_other_list {
+  width: 25%;
+  height: 150rpx;
+  border-bottom: 1px solid #f1f1f1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.other_list_left {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 28rpx;
+
+}
+
+.other_list_left_img {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 10rpx;
+}
+
+.other_list_left_img image {
+  width: 71%;
+  height: 100%;
+}
+
+.other_list_right {
+  
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.other_list_right_num{
+font-size: 24rpx;
+width: 30rpx;
+height: 30rpx;
+line-height: 30rpx;
+border-radius: 50%;
+text-align: center;
+color: #fff;
+background: red;
+}
+.other_list_right image {
+ width: 18rpx;
+  height: 30rpx;
+  margin-left: 20rpx;
+}
+
+.person_zh {
+  width: 100%;
+  height: 100rpx;
+  background: #fff;
+}
+
+.person_zh_con {
+  width: 94%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.person_zh_con_left {
+  display: flex;
+}
+.company_remark{
+width: 100%;
+text-align: center;
+height: 60rpx;
+line-height: 60rpx;
+color: #c2c2c2;
+font-size: 26rpx;
+padding: 20rpx 0;
+display: flex;
+align-items: center;
+flex-direction: row;}

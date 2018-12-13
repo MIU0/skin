@@ -1,0 +1,91 @@
+<view class='person_all'>
+  <view class='person_top'>
+    <view class='person_top_back'>
+      <image src='https://wmdx.vimi66.com/img-video/upload/img/20181130181534643653.png'></image>
+    </view>
+    <view class='person_top_con'>
+      <view class='person_top_con_img'>
+        <image src='{{userInfo.avatarUrl}}'></image>
+      </view>
+      <view class='person_top_con_name'>{{userInfo.nickName}}</view>
+    </view>
+  </view>
+  <view class='person_info'>
+    <view class='my_balance' bindtap='member'>
+      <view class="balance balance_num" wx:if='{{shopNull==0}}'>{{person_card.c_user_vip.balance}}</view>
+      <view class='balance balance_num' wx:if='{{shopNull==1}}'>0</view>
+      <view class="balance balance_name">余额</view>
+    </view>
+    <view class='my_balance' bindtap='my_integral'>
+      <view class="balance balance_num" wx:if='{{shopNull==0}}'>{{person_card.c_user_vip.integral}}</view>
+      <view class='balance balance_num' wx:if='{{shopNull==1}}'>0</view>
+      <view class="balance balance_name">积分</view>
+    </view>
+    <view class='my_balance' bindtap='person_important'>
+      <view class="balance balance_num" wx:if='{{card_nums==1}}'>1</view>
+      <view class="balance balance_num" wx:if='{{card_nums==0}}'>0</view>
+      <view class="balance balance_name">卡</view>
+    </view>
+    <view class='my_balance' bindtap='my_coupon'>
+      <view class="balance balance_num" wx:if='{{shopNull==0}}'>{{person_card.coupons_num}}</view>
+      <view class='balance balance_num' wx:if='{{shopNull==1}}'>0</view>
+      <view class="balance balance_name">券</view>
+    </view>
+  </view>
+  <view class='my_order'>
+    <view class='my_order_type'>
+      <!-- 我的订单 -->
+      <view class='my_order_type_title'>
+        <view>电商订单</view>
+        <view class='type_title_right' bindtap='all_order_list' data-status='9'>
+          <view>查看全部订单</view>
+          <view class='right_one'>
+            <image src='../../images/right.png'></image>
+          </view>
+        </view>
+      </view>
+      <!-- 订单种类 -->
+      <view class='order_list'>
+        <view class='order_type' wx:for='{{order_type_list}}' wx:key bindtap='my_order_list' data-status='{{item.status}}'>
+          <view class="type_con ">
+            <image class='type_img' src='{{item.type_img}}' mode="aspectFit"> </image>
+            <view class='type_con_num' wx:if='{{order_length[index]>0}}'>{{order_length[index]}}</view>
+          </view>
+          <view class="type_con type_name">{{item.type_name}}</view>
+        </view>
+      </view>
+
+
+
+    </view>
+  </view>
+  <!-- 其他列表 -->
+  <view class='my_order_type_title gongju'>
+    我的工具
+  </view>
+  <view class='my_person_other'>
+    <view class='my_person_other_list' wx:for='{{person_other_list}}' wx:key data-url="{{item.url}}" bindtap='person_other' data-id='{{item.id}}'>
+      <view class='other_list_left' data-id='{{id}}'>
+        <view class="iconfont {{item.iconfont}}" style='color:#b0b0b0;font-size:24px;margin-right:10rpx;font-weight:lighter;margin-bottom:14rpx;'></view>
+        <view>{{item.other_name}}</view>
+      </view>
+
+    </view>
+  </view>
+  <!-- 账号设置 -->
+  <view class='person_zh'>
+    <view class='person_zh_con' bindtap='my_account'>
+      <view class='person_zh_con_left'>
+
+        <view class='iconfont icon-shezhi' style='font-size:28rpx;'>账号设置</view>
+      </view>
+      <view class='other_list_right'>
+        <image src='../../images/right.png'></image>
+      </view>
+    </view>
+  </view>
+  <!-- 底部 -->
+  <view class='company_remark'>
+  <view>由武汉薇明科技提供技术支持</view>
+  </view>
+</view>

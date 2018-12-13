@@ -1,0 +1,144 @@
+page{
+  background: #f8f8f8
+}
+.video_pay_title{
+  font-size: 30rpx;
+  width: 94%;
+  height: 70rpx;
+  line-height: 70rpx;
+  padding: 0 20rpx; 
+  background: #fff;
+  padding-top: 20rpx;
+  color: #4e4e4e;
+}
+.video_pay_details{
+font-size: 30rpx;
+  width: 94%;
+  margin: 0 auto;
+  background: #fcfcfc;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 30rpx 20rpx;
+}
+.video_pay_details_img{
+  width: 32%;
+position: relative;
+  overflow: hidden;
+}
+.video_pay_details_img image{
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+.video_log{
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  bottom: 12rpx;
+  right: 10rpx;
+}
+.video_log image{
+width: 90%;
+height: 90%;
+}
+.video_pay_details_info{
+width: 48%;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+padding-left: 15rpx;
+
+}
+.video_pay_details_name{
+  width:100%;
+  font-size: 30rpx; 
+  font-weight: bold;
+  color: #000000;
+   overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+   word-break: break-all;
+  -webkit-line-clamp:2;
+  -webkit-box-orient: vertical;
+}
+.video_pay_details_time{
+  font-size: 26rpx;
+  color: #929292;
+}
+.video_pay_details_price{
+     width: 20%;
+  text-align: right;
+  white-space:pre-line;
+  display: flex;
+flex-direction: column;
+justify-content: space-between; 
+}
+.video_pay_details_price text{
+  width: 100%;
+}
+.video_pay_details_price text:first-child{
+  color: #e75b75
+}
+.video_pay_details_price text:last-child{
+color: #969696;
+}
+.video_pay_youhui{
+  width: 94%;
+  height: 90rpx;
+  background: #fff; 
+  padding: 0 20rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #ececec;
+  border-bottom: 1px solid #ececec;
+  font-size: 28rpx;
+  color: #393939
+ 
+}
+.video_pay_youhui_right{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+}
+.info_right{
+  width: 14rpx;
+  height: 24rpx;
+  margin-left: 15rpx;
+}
+.sum_price{
+  color: #e75b75
+}
+.warn{
+  width: 100%;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 24rpx;
+  text-align: center;
+  color: #8d8d8d;
+  margin-bottom: 20px;
+}
+.to_pay{
+  width: 90%;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #46bc04;
+  text-align: center;
+  font-size: 28rpx;
+  color: #fff;
+  margin: 0 auto;
+  border-radius: 10rpx;
+}
+.company_remark{
+width: 100%;
+text-align: center;
+height: 60rpx;
+line-height: 60rpx;
+color: #c2c2c2;
+font-size: 26rpx;
+background: #f9f9f9;
+padding: 20rpx 0;
+}

@@ -1,0 +1,26 @@
+<!--pages/cash_record/cash_record.wxml-->
+<scroll-view scroll-y="true" style="height:100vh;" bindscrolltolower="loadingMore" wx:if='{{shopNull==0}}'>
+<view class='integral_bottom'>
+  <!-- <view class='integral_bottom_null'>没有更多记录~</view> -->
+  <view class='integral_list' wx:for='{{cash_record}}' wx:key>
+    <view class='integral_list_left'>
+    <view class='integral_source_name' wx:if='{{item.type==0}}'>提现到微信</view>
+    <view class='integral_source_name' wx:if='{{item.type==1}}'>提现到支付宝</view>
+    <view class='integral_source_name' wx:if='{{item.type==2}}'>提现到银行卡</view>
+    <view class='integral_create_time'>{{item.create_time}}</view>
+    </view>
+    <view class='integral_list_right'>
+     <view >-{{item.price}}</view>
+     <view >{{item.status_name}}</view>
+    </view>
+   
+  </view>
+</view>
+<view class="more_data" wx:if="{{inforHasMore=='0'}}">-- 没有更多 --</view>
+<view class='company_remark' >由武汉薇明科技提供技术支持</view>
+</scroll-view>
+<!-- 无商品时 -->
+<view class='no_order' wx:if='{{shopNull==1}}'>
+  <view class='no_order_top'>还没有记录哟~</view>
+  <view class='company_remark_if'>由武汉薇明科技提供技术支持</view>
+</view>

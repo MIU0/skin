@@ -1,0 +1,31 @@
+<view class='video_leave_all'>
+<form bindsubmit="submit_leave">
+  <view class='my_leave_text'>
+    <textarea class="areas" placeholder='欢迎发表你的观点，留言将由作者筛选后公开显示' minlength="{{min}}" maxlength="{{max}}" bindinput="inputs" name='content' value="{{content}}"></textarea>
+    <text class="currentWordNumber" name='content' value="{{content}}">{{currentWordNumber|0}}/{{max}}</text>
+    <text class="hint" name='content' value="{{content}}">{{texts}}</text>
+
+  </view>
+  <loading hidden="{{loadhidden}}">
+  加载中...
+ </loading>
+  <button class='submit_leave' form-type='submit'>提交</button>
+</form>
+  <view class='my_text_title'>
+    <image src='../../images/short_line.png'></image>
+    <text>我的留言</text>
+    <image src='../../images/short_line.png'></image>
+  </view>
+  <!-- 留言显示 -->
+  <view class='leave_content' wx:for='{{leave_content}}' wx:key >
+    <image src='{{item.c_user_info.avatar}}'></image>
+    <view class='leave_content_right'>
+      <view class='leave_content_right_name'>{{item.c_user_info.user_name}}</view>
+      <view class='leave_content_right_con'>{{item.content}}</view>
+      <view class='leave_content_right_bottom'>
+        <view style='color:#979797;'>{{item.create_time}}</view>
+        <view style='color:#586f98;' bindtap='leave_del' data-id='{{item.id}}'>删除</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,86 @@
+{
+  "pages": [
+
+    "pages/home/home",
+    "pages/my_coupon/my_coupon",
+   "pages/my_friend/my_friend",
+    "pages/cash_record/cash_record",
+   "pages/cash/cash",
+"pages/budget/budget",
+    "pages/fenxiao/fenxiao",
+    "pages/jiesuan/jiesuan",
+    "pages/my_extend/my_extend",
+    "pages/my_fenxiao/my_fenxiao",
+    "pages/no_fenxiao/no_fenxiao",
+    "pages/tuiguang/tuiguang",
+    "pages/store_list/store_list",
+    "pages/my_show/my_show",
+    "pages/my_integral/my_integral",
+    "pages/my_integral_list/my_integral_list",
+    "pages/order_evaluate/order_evaluate",
+    "pages/order_list/order_list",
+    "pages/shop_details/shop_details",
+    "pages/person_center/person_center",
+    "pages/shop_cart/shop_cart",
+    "pages/drawbook/drawbook",
+    "pages/member/member",
+    "pages/add_address/add_address",
+    "pages/create_order/create_order",
+    "pages/video_list/video_list",
+    "pages/refund/refund",
+    "pages/my_address/my_address",
+    "pages/my_account/my_account",
+    "pages/my_logs/my_logs",
+    "pages/video_pay/video_pay",
+    "pages/video_details/video_details",
+    "pages/vip_details/vip_details",
+    "pages/order/order",
+    "pages/mylove/mylove",
+    "pages/order/order-detail/order-detail",
+    "pages/order_details/order_details",
+    "pages/video_leave/video_leave",
+   
+    "pages/vip_record/vip_record",
+    "pages/vip_information/vip_information",
+    "pages/person_important/person_important"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#f2f2f2",
+    "navigationBarTitleText": "薇明",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "color": "#707070",
+    "selectedColor": "#e75a24",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "selectedIconPath": "images/store/on_home.png",
+        "iconPath": "images/store/home.png",
+        "pagePath": "pages/home/home",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "images/store/on_fenlei.png",
+        "iconPath": "images/store/fenlei.png",
+        "pagePath": "pages/store_list/store_list",
+        "text": "分类"
+      },
+      {
+        "selectedIconPath": "images/store/gouwu_onbar.png",
+        "iconPath": "images/store/gouwu_bar.png",
+        "pagePath": "pages/shop_cart/shop_cart",
+        "text": "购物车"
+      },
+      {
+        "selectedIconPath": "images/store/on_mine.png",
+        "iconPath": "images/store/mine.png",
+        "pagePath": "pages/person_center/person_center",
+        "text": "我的"
+      }
+    ]
+  }
+}

@@ -1,0 +1,60 @@
+<form bindsubmit="submit_leave">
+<view class='all_evaluate'>
+
+  <view class='evaluate_top_all'>
+    <view class='evaluate_top'>
+      <image class='shop_img' src='{{img_url}}' mode='widthFix'></image>
+      <view class='evaluate_top_name' data-index='0'>描述相符</view>
+      <!-- 星星 -->
+      <view class='star_img' >
+        <view wx:for="{{img_a}}" wx:key="" bindtap='selecta' data-index="{{item.id}}" >
+          <image class="star" src="{{item.id>starId_a?src2:src1}}" ></image>
+        </view>
+        <!-- <view class='scorePin'>{{starId}}.00</view> -->
+      </view>
+      <!-- 星星 -->
+      <!-- <view class='evaluate_status'>非常好</view> -->
+    </view>
+    <view class='evaluate_text'>
+      <textarea class="areas" placeholder='宝贝满足你的期待吗？说说它的优点和美中不足的地方吧' placeholder-class='areas_placeholder' minlength="{{min}}" maxlength="{{max}}" bindinput="inputs" name='describe' value="{{describe}}"></textarea>
+      <text class="currentWordNumber" name='describe' value="{{describe}}">{{currentWordNumber|0}}/{{max}}</text>
+      <text class="hint" name='describe' value="{{describe}}">{{texts}}</text>
+    </view>
+    <view class='tishi'>你的评价能帮助其他小伙伴哟</view>
+  </view>
+
+  <view class='evaluate_bottom'>
+    <view class='evaluate_store'>
+      <image class='evaluate_home' src='../../images/order_home.png'></image>
+      <text class='pingfen'>商品评分</text>
+    </view>
+    <view class='evaluate_other'>
+      <view style='margin-right:20rpx;' data-index='1'>物流服务</view>
+       <!-- 星星 -->
+      <view class='star_img'>
+        <view wx:for="{{img_a}}" wx:key="" bindtap='selectb' data-index="{{item.id}}">
+          <image class="star" src="{{item.id>starId_b?src2:src1}}"></image>
+        </view>
+        <!-- <view class='scorePin'>{{starId}}.00</view> -->
+      </view>
+      <!-- 星星 -->
+    </view>
+    <view class='evaluate_other'>
+      <view style='margin-right:20rpx;' data-index='2'>服务态度</view>
+       <!-- 星星 -->
+      <view class='star_img'>
+        <view wx:for="{{img_a}}" wx:key="" bindtap='selectc' data-index="{{item.id}}" >
+          <image class="star" src="{{item.id>starId_c?src2:src1}}"></image>
+        </view>
+        <!-- <view class='scorePin'>{{starId}}.00</view> -->
+      </view>
+      <!-- 星星 -->
+    </view>
+  </view>
+   <loading hidden="{{loadhidden}}">
+  加载中...
+ </loading>
+  <button class='submit_leave' form-type='submit'>提交</button>
+
+</view>
+  </form>

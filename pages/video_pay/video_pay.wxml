@@ -1,0 +1,41 @@
+<view>
+  <view class='video_pay_title'>购买内容</view>
+  <view class='video_pay_details'>
+ 
+    <view class='video_pay_details_img'>
+   <image src='{{video_pay.img_url}}' mode='widthFix'></image>
+        <view class='video_log'>
+          <image src='../../images/vedio.png' mode='aspectFit'></image>
+        </view>
+    </view>
+    <view class='video_pay_details_info'>
+      <view class='video_pay_details_name'>{{video_pay.translate_name}}</view>
+      <view class='video_pay_details_time'>{{video_pay.create_time}}</view>
+    </view>
+    <view class='video_pay_details_price'>
+      <text>￥{{video_pay.price}}</text>\n
+      <text>x1</text>
+    </view>
+  </view>
+  <!-- 优惠券 -->
+  <!-- <view class='video_pay_youhui' style=' margin-bottom: 20rpx;'>
+    <view>优惠券码</view>
+    <view class='video_pay_youhui_right'>
+      <view>使用优惠</view>
+      <image class='info_right' src='../../images/right.png'></image>
+    </view>
+  </view> -->
+  <!-- 合计 -->
+  <view class='video_pay_youhui'>
+    <view>合计</view>
+    <view class='video_pay_youhui_right'>
+      <view class='sum_price'>￥{{video_pay.price}}</view>
+
+    </view>
+  </view>
+  <!-- 提示 -->
+  <view class='warn'>你将购买的是虚拟内容服务，购买后不支持退订、退让、退换</view>
+  <!-- 支付 -->
+  <view class='to_pay' bindtap='toPay'>去支付</view>
+</view>
+<view class='company_remark'>由武汉薇明科技提供技术支持</view>

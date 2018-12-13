@@ -1,0 +1,52 @@
+<!--pages/my_integral/my_integral.wxml-->
+<view wx:if='{{shopNull==0}}'>
+
+<view class='integral_top' style="background-image: url('https://wmdx.vimi66.com/img-video/upload/img/20181212101221461242.png');background-size:cover;">
+  <view class='integral_top_con'>
+    <view class='integral_top_con_title'>可用积分</view>
+    <view class='integral_top_con_price'>{{my_integral.integral}}</view>
+  </view>
+</view>
+<view class='integral_con'>
+  <view class='integral_con_left' style='border-right:1px solid #e0e0e0;'>
+    <view class='integral_con_left_kuang'>
+      <image class='integral_con_left_img' src='../../images/integral_two.png' mode='widthFix'></image>
+      <text>积分商城</text>
+    </view>
+  </view>
+  <view class='integral_con_left'>
+    <view class='integral_con_left_kuang'>
+      <image class='integral_con_left_img' src='../../images/integral_one.png' mode='widthFix'></image>
+      <text>兑换记录</text>
+    </view>
+  </view>
+</view>
+<!-- 最近记录 -->
+<view class='integral_jltitle'>
+  <view class='integral_jltitle_left'>最近积分纪录</view>
+  <view class='integral_jltitle_right' bindtap='integral_list'>
+    <text>历史积分记录</text>
+    <image class='right_one' src='../../images/integral_right.png'></image>
+  </view>
+</view>
+<view class='integral_bottom'>
+  <!-- <view class='integral_bottom_null'>没有更多记录~</view> -->
+  <view class='integral_list' wx:for='{{recordList}}' wx:key>
+    <view class='integral_list_left'>
+    <view class='integral_source_name'>{{item.source_name}}</view>
+    <view class='integral_create_time'>{{item.create_time}}</view>
+    </view>
+    <view class='integral_list_right'wx:if='{{item.type==0}}'>+{{item.inte_num}}</view>
+    <view class='integral_list_right' wx:if='{{item.type!=0}}'>-{{item.inte_num}}</view>
+  </view>
+</view>
+</view>
+
+
+<!-- 无优惠券 -->
+<view class='no_order' wx:if='{{shopNull==1}}'>
+  <view class='no_order_top'>还没有积分哟</view>
+  <view class='no_order_center'>去注册会员</view>
+  <view class='no_order_bottom' bindtap='go_shop'>去注册</view>
+  <view class='company_remark_if'>由武汉薇明科技提供技术支持</view>
+</view>

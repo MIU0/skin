@@ -1,0 +1,24 @@
+<!--pages/my_show/my_show.wxml-->
+<view class='store_list'wx:if='{{shopNull==0}}'>
+    <view class='store_list_content' wx:for='{{my_show}}' wx:key>
+      <view class='store_list_content_img' data-index='{{index}}' bindtap='shop_details' data-id='{{item.id}}'>
+        <image src='{{item.img_url}}' mode="aspectFill"></image>
+      </view>
+      <view class='store_list_content_name'>{{item.name}}</view>
+      <!-- <view class='store_list_content_bottom'>
+        <view class='content_bottom_price'>￥{{item.price}}</view>
+ 
+        <view class='content_bottom_img' bindtap='gouwu_pop' data-id='{{item.commerce_id}}'>
+          <image src='../../images/gouwu.png'></image>
+        </view>
+      </view> -->
+    </view>
+
+    <view class='company_remark'>由武汉薇明科技提供技术支持</view>
+  </view>
+
+<!-- 无商品时 -->
+<view class='no_order' wx:if='{{shopNull==1}}'>
+  <view class='no_order_top'>还没有商品哟~</view>
+  <view class='company_remark_if'>由武汉薇明科技提供技术支持</view>
+</view>

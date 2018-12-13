@@ -1,0 +1,18 @@
+<!--pages/my_fenxiao/my_fenxiao.wxml-->
+
+<view style='display:flex;flex-direction:column;align-items: center;' wx:if='{{shopNull==0}}'>
+  <view class='fx_list' wx:for='{{my_fans}}' wx:key>
+    <view class='fx_list_left'>
+      <image src='{{item.c_user_info.avatar}}'></image>
+      <view class='list_left_right'>
+        <view>{{item.name}}</view>
+        <view>{{item.create_time}}</view>
+      </view>
+    </view>
+  </view>
+ 
+</view>
+ <view class='no_order' wx:if='{{shopNull==1}}'>
+  <view class='no_order_top'>啊哦，还没有客户哟~</view>
+  <view class='company_remark_if'>由武汉薇明科技提供技术支持</view>
+</view>

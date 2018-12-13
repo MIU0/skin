@@ -1,0 +1,80 @@
+<view>
+<view class='head'>
+  <view class='head-left'>
+    <image src='{{c_user_info.avatar}}'></image>
+  </view>
+  <view class='head-right'>
+    <view>{{fx_info.phone}}</view>
+    <view>当前店铺：GL好肌友皮肤管理</view>
+  </view>
+</view>
+
+<view class='shouyi'>
+  <view>当前店铺累计收益(元)</view>
+  <view>{{fx_info.sum_profit}}</view>
+  <view>不包含待结算{{fx_info.settlement_price}}元</view>
+</view>
+
+<view class='tixian' bindtap='js_money' data-balance='{{fx_info.balance}}'>
+  <view>可提现佣金 {{fx_info.balance}}元</view>
+  <view>
+    <text>立即提现</text>
+    <image src='../../images/img/right.png'></image>
+  </view>
+</view>
+
+<view class='gaishu'>
+  <view bindtap='all_kh' data-id='{{fx_info.id}}'>
+    <view>{{fx_info.user_num}}</view>
+    <view>累计客户</view>
+  </view>
+  <view bindtap='my_djs' data-status='0' data-id='{{fx_info.id}}'>
+    <view>{{fx_info.order_num}}</view>
+    <view>待结算订单</view>
+  </view>
+  <view bindtap='my_extend' data-id='{{fx_info.id}}'>
+    <view>{{fx_info.all_order_num}}</view>
+    <view>推广订单</view>
+  </view>
+</view>
+<view class='adv'>
+  <view class='adv_list' bindtap='t_shop'>
+    <image class='adv_list_img' src='../../images/fenxiao_three.png'></image>
+    <view class='adv_list_text'>
+      <view class='first-text'>推广商品</view>
+      <view class='second-text'>
+     <text >赚佣金</text>
+      <image class='adv_list_text_img' src='../../images/react4.png'/>
+      </view>
+    </view>
+  </view>
+  <view class='adv_list' bindtap='my_friend' data-id='{{fx_info.id}}'>
+    <image class='adv_list_img' src='../../images/fenxiao_two.png'></image>
+    <view class='adv_list_text'>
+      <view class='first-text'>邀请好友</view>
+      <view class='second-text'>
+     <text >齐推广</text>
+      <image class='adv_list_text_img' src='../../images/react4.png'/>
+      </view>
+    </view>
+  </view>
+  <view class='adv_list'>
+    <image class='adv_list_img' src='../../images/fenxiao_one.png'></image>
+    <view class='adv_list_text'>
+      <view class='first-text'>通知中心</view>
+      <view class='second-text'>
+     <text >看消息</text>
+      <image class='adv_list_text_img' src='../../images/react4.png'/>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class='problem'>
+  <text>常见问题</text>
+  <image src='../../images/img/right.png'></image>
+</view>
+
+
+<view class='kong'></view>
+</view>

@@ -1,0 +1,273 @@
+
+<import src="../../wxParse/wxParse.wxml" />
+<!-- ------------------ -->
+<view data-id='{{item.commerce_id}}'>
+  <swiper class='banner' autoplay="{{autoplay}}" indicator-dots="{{indicatorDots}}" indicator-color="#979b9e" indicator-active-color='#ff965f' circular="true" interval="{{myinterval}}" duration="{{duration}}">
+    <block wx:for="{{shop_details.photoList}}" wx:key data-id='{{item.commerce_id}}'>
+      <swiper-item>
+        <image src="{{item.img_url}}" mode='widthFix'></image>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <!-- ------------------ -->
+  <view style='background:#fff;'>
+    <view class='book-title'>{{shop_details.commerce_name}}</view>
+    <view class='book-script'>{{shop_details.commerce_introduction}}</view>
+    <view class='book-price'>
+      <view class='book-price-left'>
+        <view>￥{{shop_details.price}}</view>
+        <view>￥{{shop_details.old_price}}</view>
+      </view>
+      <view class='book-price-right' bindtap="haveSave" data-commerce_id='{{shop_details.commerce_id}}'>
+        <image src="{{isClick?'../../images/xinxin_full.png':'../../images/xinxin.png'}}"></image>
+        <text>喜欢</text>
+      </view>
+    </view>
+
+    <view class='book-message'>
+      <view wx:if='{{shop_details.postage_price>0}}'>运费：{{shop_details.postage_price}}</view>
+      <view wx:else>运费：免运费</view>
+      <view>剩余：{{shop_details.stock}}</view>
+      <view>销量：{{shop_details.sum_num}}</view>
+    </view>
+  </view>
+</view>
+
+<!-- -------------------------- -->
+<view class='introduce'>
+
+  <view class='introduce-con' wx:if='{{show_coupon==1}}'>
+    <view class='introduce-con_left'>优惠</view>
+    <view class='introduce-con_right'>
+      <view class='introduce-con_right_top'>
+        <view class='reduce_js'>
+          <image class='jiantou' src='../../images/jiantou.png'></image>
+          <text>领劵后至少可减</text>
+          <text>￥{{min_coupon.coupons_price}}</text>
+        </view>
+        <view class='lingqu' bindtap='coupon'>
+          <text>领券</text>
+          <image src='{{right}}'></image>
+        </view>
+
+      </view>
+      <view class='introduce-con_right_bottom'>
+        <view class='introduce-con_right_bottom_title'>店铺优惠券</view>
+        <view class='introduce-con_right_bottom_con'>
+          <image class='youhui_img' src='../../images/youhui_kuang.png' mode='widthFix'></image>
+          <view>满{{min_coupon.qs_je}}元减{{min_coupon.coupons_price}}券</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--  -->
+  <view class='introduce-bottom'>
+    <view class='introduce-bottom-top'>
+      线下门店
+      <image src='{{right}}'></image>
+    </view>
+    <view class='introduce-bottom-bottom'>
+      <view>
+        <image src='{{corner}}'></image>
+        <text>管字店认证</text>
+      </view>
+      <view>
+        <image src='{{corner}}'></image>
+        <text>担保交易</text>
+      </view>
+      <view>
+        <image src='{{corner}}'></image>
+        <text>线下门店</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- ---------------- -->
+<view class='product-assess'>
+  <view>
+    <text class="{{_num == 1?'current':''}}" data-num="1" bindtap="clickNum"> 商品详情</text>
+  </view>
+  <view>
+    <text class="{{_num == 2?'current':''}}" data-num="2" bindtap="clickNum" data-id='{{shop_details.commerce_id}}'>销量和评价
+  </text>
+  </view>
+</view>
+
+<!-- 商品详情 -->
+<view class="shop_details_text {{_num == 2?'change':''}}">
+  <template style='width:100%;' is="wxParse" data="{{wxParseData:article.nodes}}" />
+  <!-- <view >{{shop_details.commerce_details}}</view> -->
+  <view class='price_explain'>
+    <view class='explain_line'></view>
+    <view class='explain_text'>价格说明</view>
+    <view class='explain_line'></view>
+  </view>
+
+</view>
+<!-- 销量和评价 -->
+<view class="{{_num == 1?'change':''}} assess-right">
+  <view class='assess-right-all'>
+    <view class="{{_praise==9?'praise':''}}" data-praise="9" catchtap="clickPraise">全部（{{comment_num[0]}}）</view>
+    <view class="{{_praise==2?'praise':''}}" data-praise="2" catchtap="clickPraise">好评（{{comment_num[1]}}）</view>
+    <view class="{{_praise==1?'praise':''}}" data-praise="1" catchtap="clickPraise">中评（{{comment_num[2]}}）</view>
+    <view class="{{_praise==0?'praise':''}}" data-praise="0" catchtap="clickPraise">差评（{{comment_num[3]}}）</view>
+  </view>
+  <view wx:if='{{my_choose==1}}' style='font-size:28rpx;width:100%;text-align: center;height:200rpx;line-height:200rpx;'>还没有评论哟~</view>
+  <view class=" praise-range" wx:for='{{all_comment}}' wx:key data-rank='{{item.rank}}'>
+
+    <view class='praise-range-content'>
+      <view class='pingjia'>
+        <view class='pj-head'>
+          <view class='pj-head-left'>
+            <image class='pj-header' src='{{item.c_user_info.avatar}}'></image>
+          </view>
+          <view class='pj-head-right'>
+            <view style='height:48rpx;'>
+              {{item.c_user_info.user_name}}
+            </view>
+            <view style='font-size:24rpx;'>{{item.create_time}}</view>
+          </view>
+        </view>
+        <view class='pj-bottom'>
+          <view style='line-height:50rpx; color:#383838;'>{{item.t_describe}}</view>
+          <view>
+            <view>购买自：本店</view>
+            <!-- <view>
+              <image class='dianzan' src='{{dianzan}}'></image>
+              <text style='margin-left:10rpx;font-size:28rpx;'>1</text>
+            </view> -->
+          </view>
+        </view>
+
+      </view>
+
+
+    </view>
+  </view>
+
+</view>
+
+
+<!-- 底部栏 -->
+
+<view class='all_content_bottom'>
+<view class="bo_left chat" bindtap='home'>
+    <image class='bo_left_image' src='../../images/store/home.png' mode='widthFix' style='margin-bottom:6rpx;'></image>
+    <text class='bo_left_text'>首页</text>
+  </view>
+  <view class="bo_lefta chat">
+    <button class="kf_button" open-type="contact" session-from="weapp">
+      <image class='' src='../../images/chat_red.png' mode='widthFix' />
+    </button>
+    <text class='bo_left_text'>客服</text>
+  </view>
+  <view class="bo_left chat" bindtap='gouwu'>
+    <image class='bo_left_image' src='../../images/shop_gouwu.png' mode='widthFix' style='margin-bottom:6rpx;'></image>
+    <text class='bo_left_text'>购物车</text>
+  </view>
+  <!-- <view class="bo_left chat">
+  <button class='shop_share_btn' open-type="share"><image class='bo_left_image' src='../../images/shop_send.png' mode='widthFix' style='margin-top:8rpx;margin-bottom:8rpx;'></image></button>
+    
+    <text class='bo_left_text'>送人</text>
+  </view> -->
+  <view class="bo_right bo_gouwu" bindtap='gouwu_pop' data-id='{{shop_details.commerce_id}}' data-count='{{count}}'>加入购物车</view>
+  <view class="bo_right bo_buy" bindtap='buy_now' data-id='{{shop_details.commerce_id}}' data-count='{{count}}'>立即购买</view>
+</view>
+
+<!-- 点击购物车弹出层 -->
+<view class='store_pop' catchtouchmove="preventTouchMove" catchtap='closepop' wx:if='{{store_pop}}'></view>
+<view class='store_pop_body' wx:if='{{store_pop}}' animation="{{animationData}}">
+  <view class='store_pop_top'>
+    <view class='store_pop_img'>
+      <image src='{{store_pop.img_src}}' mode='widthFix'></image>
+    </view>
+    <view class='store_pop_con'>
+      <view class='store_pop_con_name'>{{store_pop.commerce_name}}</view>
+      <text class='store_pop_con_price'>￥{{store_pop.price}}</text>
+    </view>
+    <view class='store_pop_close' bindtap='close_gouwu'>
+      <image src='../../images/close_a.png'></image>
+    </view>
+  </view>
+  <view class='store_pop_num'>
+    <view class='store_pop_num_left'>
+      <view>购买数量:</view>
+      <view>剩余{{store_pop.stock}}件</view>
+    </view>
+    <view class='store_pop_num_right'>
+      <view class='one_top'>
+        <view class="subtract {{count == 1 ? 'disabled': ''}}" data-index='{{index}}' catchtap='subtracttap'>-</view>
+        <input class='count' type='number' value='{{count}}' disabled='false'></input>
+        <view class='add' data-index="{{index}}" catchtap='addtap'>+</view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 优惠券弹出框 -->
+<view class='coupon' catchtouchmove="preventTouchMove" catchtap='closecoupon' wx:if='{{coupon}}'></view>
+<view class='coupon_body' wx:if='{{coupon}}' animation="{{animationData}}">
+  <view class='coupon_body_top'>优惠</view>
+  <scroll-view scroll-y="true" class='scroll_coupon' style="height:50vh;">
+    <view class='coupon_body_reduce_js'>
+      <image class='jiantou' src='../../images/jiantou.png'></image>
+      <text>商品售价</text>
+      <text>￥{{shop_details.price}}，</text>
+      <text>使用以下至少可减</text>
+      <text class='coupon_body_reduce_price'>￥{{min_coupon.coupons_price}}</text>
+    </view>
+    <view class='coupon_body_reduce_title'>领券</view>
+    <view class='coupon_body_con'>
+      <view class='coupon_body_con_list' style="background-image: url('https://wmdx.vimi66.com/img-video/upload/img//20181120141506521283.png');background-size:100% 100%;" wx:for='{{coupon_list}}'>
+        <view class='coupon_body_con_list_left'>
+          <view class='coupon_list_top'>
+            <text>￥</text>
+            <text class='coupon_list_top_price'>{{item.coupons_price}}</text>
+            <text>店铺优惠券</text>
+          </view>
+          <view class='coupon_list_con'>满{{item.qs_je}}使用</view>
+          <view class='coupon_list_cona'>{{item.effective_day}}天内有效</view>
+        </view>
+        <view class='coupon_body_con_list_right ' wx:if="{{item.lq_status==0}}" data-index='{{index}}' data-lq_status="1" bindtap='my_coupon' data-coupons_id='{{item.coupons_id}}'>
+          <text>立即领取</text>
+        </view>
+         <view class='coupon_body_con_list_right_fin ' wx:if="{{item.lq_status==1}}"  data-lq_status="0">
+          <text>已领取</text>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <view class='coupon_jieshao'>以上价格计算仅为初步预估，不代表最终购买价格</view>
+  <view class='coupon_finish' bindtap='coupon_end'>完成</view>
+</view>
+<!-- 成为分销员后赚 -->
+
+<view class='zhuan' bindtap='zhuan' wx:if='{{zhuan==1}}'>赚</view>
+
+<!-- 弹出层 -->
+<view class='zhuan_info' catchtouchmove="preventTouchMove" catchtap='close_zhuan' wx:if='{{zhuan_info}}'></view>
+<view class='zhuan_info_body' wx:if='{{zhuan_info}}'>
+  <view class='zhuan_info_body_top'>立即分享给好友</view>
+  <view class='zhuan_info_body_hint'>朋友通过你分享的页面成功购买后,你可获得相对应的佣金。佣金可在"我的-分销员中心"中查看</view>
+  <view class='zhuan_info_con'>
+    <view class='zhuan_info_con_left'>
+    <button open-type='share'>
+    <image class='zhuan_img' src='../../images/zhuan_weixin.png'></image>
+    </button>
+      
+      <view>微信</view>
+    </view>
+    <view class='zhuan_info_con_left' bindtap='my_code'  data-id='{{shop_details.commerce_id}}'>
+      <image class='zhuan_img' src='../../images/zhuan_ma.png'></image>
+      <view>二维码</view>
+    </view>
+  </view>
+  <view class='zhuan_btn' bindtap='fenxiao'>我的分销员中心</view>
+</view>
+<!-- 二维码弹出层 -->
+<view class='code_info' catchtouchmove="preventTouchMove" catchtap='close_code' wx:if='{{code_info}}'></view>
+<view class='code_info_body' wx:if='{{code_info}}'>
+<image src='{{my_path.path}}' bindtouchstart='timestart' bindtouchend='timeend' bindtap='saveImg'></image>
+</view>
+<view class='code_info_hint' wx:if='{{code_info}}'>长按图片保存至相册</view>

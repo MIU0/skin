@@ -1,0 +1,13 @@
+<view class='content'>
+  <view class="msg">
+    <view class='msg-head'>{{postData.title2}}</view>
+    <view class='msg-contain'>
+    {{postData.content}}
+    {{postData.content1}}
+    <text style='color:#ffbc4f'>{{postData.content32}}</text>  
+    <text style='color:#6cbbff' bindtap='callme'>{{postData.content2}}</text>  
+    {{postData.content3}}
+    <text style='color:#6cbbff'>{{postData.content4}}</text>
+    </view>
+  </view>
+</view>

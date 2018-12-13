@@ -1,0 +1,16 @@
+<view class='main'>
+  <view class='head'>
+    <text>常见订单问题\n</text>
+    <text>(若任由疑问可点击下方链接联系客户哦)</text>
+  </view>
+  <view class='list'>
+    <block>
+      <view wx:for="{{postList}}" wx:for-item="item" wx:key>
+        <view catchtap="detailTo" data-postId="{{item.id}}">
+          <text>{{item.title}}</text>
+          <image src='../../images/right.png'></image>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

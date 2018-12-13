@@ -1,0 +1,25 @@
+<view class="qian">
+  <view>
+    <image src='../../images/img/qian.png'></image>
+  </view>
+  <view>可提现金额</view>
+  <view>￥{{balance}}</view>
+  <view bindtap='my_cash'>提现</view>
+</view>
+
+<view class='pay'>
+  <view class='pay-item' bindtap='budget'>
+    <view>收入明细</view>
+    <view>
+      <image src='../../images/img/right.png'></image>
+    </view>
+  </view>
+  <view class='pay-item' bindtap='cash_record'>
+    <view>提现记录</view>
+    <view>
+      <image src='../../images/img/right.png'></image>
+    </view>
+  </view>
+</view>
+
+<view class='kong'></view>

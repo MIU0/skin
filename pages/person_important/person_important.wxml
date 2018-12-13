@@ -1,0 +1,8 @@
+<view class='person_important'>
+  <view class='person_important_top' style="background-image:url('http://wmdx.vimi66.com:8010/img-video/upload/img//20181114104824905804.png') " bindtap='my_vip'>
+    <view class='card_name_big'>栾树画室</view>
+    <view class='card_name_small'>vip用户享八折优惠</view>
+  </view>
+  <view class='person_important_bottom' bindtap='my_vip'>领取会员卡</view>
+</view>
+<view class='company_remark'>由武汉薇明科技提供技术支持</view>

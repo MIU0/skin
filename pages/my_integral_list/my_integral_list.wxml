@@ -1,0 +1,15 @@
+<!--pages/my_integral_list/my_integral_list.wxml-->
+<scroll-view scroll-y="true" style="height:100vh;" bindscrolltolower="loadingMore">
+<view class='integral_bottom'>
+  <!-- <view class='integral_bottom_null'>没有更多记录~</view> -->
+  <view class='integral_list' wx:for='{{recordList}}' wx:key>
+    <view class='integral_list_left'>
+    <view class='integral_source_name'>{{item.source_name}}</view>
+    <view class='integral_create_time'>{{item.create_time}}</view>
+    </view>
+    <view class='integral_list_right'wx:if='{{item.type==0}}'>+{{item.inte_num}}</view>
+    <view class='integral_list_right' wx:if='{{item.type!=0}}'>-{{item.inte_num}}</view>
+  </view>
+</view>
+<view class="more_data" wx:if="{{inforHasMore=='0'}}">-- 没有更多 --</view>
+</scroll-view>

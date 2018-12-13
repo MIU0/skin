@@ -1,0 +1,193 @@
+page{
+  background: #f9f9f9;
+}
+
+.my_address{
+  margin-top: 36rpx;
+  width: 100%;
+  background: #fff;
+  padding-bottom: 46rpx;
+  /* border: 1px solid red; */
+}
+
+.addressmask{
+width: 100%;
+    height: 500rpx;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    z-index: 990;
+    opacity: 0.4;
+}
+.my_address_list{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0 10rpx 0 16rpx;
+
+}
+
+.my_address_list_item{
+  display: flex;
+  align-items: center;
+  padding: 18rpx 0;
+  border-bottom: 1rpx solid #ebeaeb;
+  
+}
+/* ------- */
+radio .wx-radio-input{
+   border-radius: 50%;/* 圆角 */
+   width: 30rpx;
+   height: 30rpx;
+   border: 1px solid #ff3b39;
+}
+/* 选中后的 背景样式 （红色背景 无边框 可根据UI需求自己修改） */
+radio .wx-radio-input.wx-radio-input-checked{
+   /* border: none; */
+    background: #fc5872;
+    border: 1px solid #fc5872;
+     transform: scale(0.7);
+}
+/* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
+radio .wx-radio-input.wx-radio-input-checked::before{
+   border-radius: 50%;/* 圆角 */
+   width: 45rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+   height: 45rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+   line-height: 45rpx;
+   text-align: center;
+   font-size:28rpx; /* 对勾大小 30rpx */
+   color:#fff; /* 对勾颜色 白色 */
+   background: transparent;
+   transform:translate(-50%, -50%) scale(1);
+   -webkit-transform:translate(-50%, -50%) scale(1);
+   border: 1px solid #ff3b39;
+   background: #ff3b39;
+}
+/* ------- */
+/* 左 */
+.my_address_list_item_left{
+  padding-left: 16rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 71%;
+  /* border: 1px solid red; */
+}
+
+.my_address_list_item_left_top{
+  font-size: 28rpx !important;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.my_address_list_item_left_top_name{
+   color: #383838;
+}
+.my_address_list_item_left_top_identity{
+  padding-left: 16rpx;
+}
+.my_address_list_item_left_top_phone{
+  padding-left: 20rpx;
+  margin-left: 10rpx;
+  color: #383838;
+}
+
+.my_address_list_item_left_bottom{
+  
+  padding-top: 10rpx;
+  /* border: 1px solid red; */
+  
+}
+
+
+.my_address_list_item_left_bottom_address{
+  font-size: 26rpx;
+  color: #8f8f8f;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  /*将对象作为弹性伸缩盒子模型显示*/
+  display:-webkit-box;
+  /*从上到下垂直排列子元素（设置伸缩盒子的子元素排列方式）*/
+-webkit-box-orient:vertical; 
+/* 这个属性不是css的规范属性，需要组合上面两个属性，表示显示的行数 */
+-webkit-line-clamp:2; 
+
+}
+/* 右 */
+.my_address_list_item_right{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;  
+  margin-top: 10rpx;
+  padding-right: 12rpx;
+  margin-left: 20rpx;
+}
+
+.my_address_list_item_right_modify{
+  width: 44rpx;
+  height: 32rpx;
+  display: flex;
+}
+.my_address_list_item_right_modify image{
+  width: 100%;
+  height: 100%;
+}
+.my_address_list_item_right_del{
+  margin-top: 18rpx;
+  width: 32rpx;
+  height: 32rpx;
+  margin-left: 15rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.my_address_list_item_right_del image{
+  width: 90%;
+  height: 90%;
+}
+
+.my_address_increase{
+  position:fixed; 
+  bottom:0;
+  width:100%;
+  height: 98rpx;
+  line-height: 98rpx;
+  background: #ff4342;
+  text-align: center;
+ color: #fff;
+ font-size: 30rpx;
+}
+/*无地址*/
+.no_order {
+  width: 40%;
+  /* height: 200rpx; *//* border: 1px solid red; */
+  margin: 0 auto;
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.no_order_top {
+  color: #6a6a6a;
+  font-size: 30rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+}
+.company_remark_if{
+position: absolute;
+  bottom: 10vh;
+  left: 0;
+width: 100%;
+text-align: center;
+height: 60rpx;
+line-height: 60rpx;
+color: #c2c2c2;
+font-size: 26rpx;
+/* background: #f9f9f9; */
+}
+
+
+
+

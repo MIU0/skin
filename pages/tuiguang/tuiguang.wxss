@@ -1,0 +1,133 @@
+.search{
+  width: 100%;
+  background-color:#ebebeb;
+  padding: 1vh 30rpx; 
+  box-sizing: border-box;
+}
+.search> view{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 26rpx;
+  color: #ccc;
+  padding: 2rpx 10rpx;
+  box-sizing: border-box;
+  border-radius: 5rpx;
+  background-color: white;
+}
+.search> view input{
+  width: 90%;
+}
+.search image{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
+}
+
+
+.list{
+  font-size: 28rpx;
+  width: 100%;
+  color: #333;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+  background-color: white;
+  margin-bottom: 4rpx;
+}
+.list > view{
+  padding: 1vh 0;
+  width: 25%;
+}
+.list > view:last-child{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.list image{
+  width: 26rpx;
+  height: 26rpx;
+  display: inline-block;
+  margin-left: 6rpx;
+}
+.rotateafter{
+/* 180°旋转图片 */
+   transform: rotate(180deg); 
+}
+.rotatebefore{
+   width: 26rpx;
+  height: 26rpx;
+  display: inline-block;
+  margin-left: 6rpx;
+}
+.current{
+  color: #36c075;
+  border-bottom: 2rpx solid #36c075;
+  box-sizing: border-box;
+}
+.change{
+  display: block !important;
+}
+
+.content{
+  width: 100%;
+  display: none;
+}
+.content > .content-one{
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  background-color: white;
+  
+}
+.content .content-one image{
+  width: 120rpx;
+  height: 140rpx;
+  display: inline-block;
+}
+.content .content-one .content-one-center{
+display: flex;
+flex-direction: row;
+border-bottom: 2rpx solid rgb(231, 230, 230);
+padding-top: 20rpx;
+padding-bottom: 12rpx;
+box-sizing: border-box;
+}
+.content .content-one .content-one-center view:last-child view{
+  margin-left: 20rpx;
+  font-size: 28rpx;
+}
+.content .content-one .content-one-center view:last-child view:last-child{
+  margin-top: 30rpx;
+  color: #999;
+}
+
+
+.tab{
+  width: 100%;
+  height: 7vh;
+  line-height: 7vh;
+  font-size: 28rpx;
+  color: #999;
+  background-color: #fafafa;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  border-top: 2rpx solid #ececec;
+}
+.tab > view{
+  width: 33.33%;
+}
+.tab > view:nth-child(2){
+  border-left:2rpx solid #ececec ;
+  border-right:2rpx solid #ececec 
+}
+.kong{
+  width: 100%;
+  height: 7vh;
+}

@@ -1,0 +1,108 @@
+/* pages/my_extend/my_extend.wxss */
+page{
+  background: #f9f9f9;
+}
+.my_extend{
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid #e9e9e9;
+}
+.my_extend_top{
+  width: 94%;
+  height: 100rpx;
+  border-bottom: 1px dashed #e9e9e9;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 28rpx;
+}
+.my_extend_top_left{
+  color: #373737;
+}
+.my_extend_top_left text:last-child{
+  color: #9b9b9b !important;
+}
+.my_extend_top_right{
+  color: #da732b;
+}
+.my_extend_con{
+   width: 94%;
+   border-bottom: 1px dashed #e9e9e9;
+   padding: 10rpx 0;
+   box-sizing: border-box;
+   display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.my_extend_con_left{
+  width: 30%;
+  margin-right: 20rpx;
+}
+.my_extend_con_left image{
+  width: 100%;
+}
+.my_extend_con_right{
+   width: 62%;
+  height: 158rpx;
+  font-size: 28rpx;
+}
+.money{
+height: 79rpx !important;
+}
+.time{
+  border: none;
+  font-size: 26rpx !important;
+  color: #9b9b9b !important;
+}
+/* 无订单 */
+
+.no_order {
+  width: 40%;
+  /* height: 200rpx; *//* border: 1px solid red; */
+  margin: 0 auto;
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.no_order_top {
+  color: #6a6a6a;
+  font-size: 30rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+}
+
+.no_order_center {
+  color: #989898;
+  font-size: 24rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  margin-bottom: 35rpx;
+}
+
+.no_order_bottom {
+  color: #e16d20;
+  width: 195rpx;
+  text-align: center;
+  font-size: 28rpx;
+  border: 1px solid #e16d20;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 10rpx;
+}
+.company_remark_if{
+position: absolute;
+  bottom: 10vh;
+  left: 0;
+width: 100%;
+text-align: center;
+height: 60rpx;
+line-height: 60rpx;
+color: #c2c2c2;
+font-size: 26rpx;
+background: #f9f9f9;
+}

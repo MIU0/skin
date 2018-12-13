@@ -1,0 +1,11 @@
+<!--pages/my_friend/my_friend.wxml-->
+<view class='my_friend'>
+
+<image src='{{path.extension_img}}' mode='widthFix' bindtouchstart='timestart' bindtouchend='timeend' bindtap='saveImg'></image>
+
+</view>
+<view class='my_friend_bottom'>
+<image src='../../images/zhiwen.png' mode='widthFix'></image>
+<view>长按图片保存到相册</view>
+</view>
+<view class='company_remark'>由武汉薇明科技提供技术支持</view>

@@ -1,0 +1,55 @@
+ <view class='store_list' wx:if='{{shopNull==0}}'>
+    <view class='store_list_content' wx:for='{{store_list}}' wx:key>
+      <view class='store_list_content_img' data-index='{{index}}' bindtap='shop_details' data-id='{{item.commerce_id}}'>
+        <image src='{{item.img_src}}' mode="widthFix"></image>
+      </view>
+      <view class='store_list_content_name'>{{item.commerce_name}}</view>
+      <view class='store_list_content_bottom'>
+        <view class='content_bottom_price'>￥{{item.price}}</view>
+ 
+        <view class='content_bottom_img' bindtap='gouwu_pop' data-id='{{item.commerce_id}}'>
+          <image src='../../images/gouwu.png'></image>
+        </view>
+      </view>
+    </view>
+
+    <view class='company_remark' wx:if='{{shopNull==0}}'>由武汉薇明科技提供技术支持</view>
+  </view>
+  <!-- 点击购物车弹出层 -->
+<view class='store_pop' catchtouchmove="preventTouchMove" catchtap='closepop' wx:if='{{store_pop}}'></view>
+<view class='store_pop_body' wx:if='{{store_pop}}' animation="{{animationData}}">
+  <view class='store_pop_top'>
+    <view class='store_pop_img'>
+      <image src='{{store_pop.img_src}}' mode='widthFix'></image>
+    </view>
+    <view class='store_pop_con'>
+      <view class='store_pop_con_name'>{{store_pop.commerce_name}}</view>
+      <text class='store_pop_con_price'>￥{{store_pop.price}}</text>
+    </view>
+    <view class='store_pop_close' bindtap='close_gouwu'>
+      <image src='../../images/close_a.png'></image>
+    </view>
+  </view>
+  <view class='store_pop_num'>
+    <view class='store_pop_num_left'>
+      <view>购买数量:</view>
+      <view>剩余{{store_pop.stock}}件</view>
+    </view>
+    <view class='store_pop_num_right'>
+      <view class='one_top'>
+        <view class="subtract {{count == 1 ? 'disabled': ''}}" data-index='{{index}}' catchtap='subtracttap'>-</view>
+        <input class='count' type='number' value='{{count}}' disabled='false'></input>
+        <view class='add' data-index="{{index}}" catchtap='addtap'>+</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='store_pop_bottom' wx:if='{{store_pop}}' animation="{{animationData}}">
+  <view bindtap='my_add' data-id='{{store_pop.commerce_id}}' data-count='{{count}}'>加入购物车</view>
+  <view bindtap='buy_now' data-id='{{store_pop.commerce_id}}' data-count='{{count}}' >立即购买</view>
+</view>
+<!-- 无商品时 -->
+<view class='no_order' wx:if='{{shopNull==1}}'>
+  <view class='no_order_top'>还没有商品哟~</view>
+  <view class='company_remark_if'>由武汉薇明科技提供技术支持</view>
+</view>

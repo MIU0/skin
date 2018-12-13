@@ -1,0 +1,133 @@
+<view>
+  <!-- 顶部 -->
+  <view class='order_status_top'>
+    <view class='status_top'>
+      <view class='status_top_img' wx:if='{{t_order.status>0&&t_order.status<7}}'>
+        <image src='../../images/order_status.png'></image>
+      </view>
+      <view class='status_top_nopay' wx:if='{{t_order.status==0||t_order.status>6}}'>
+        <image src='../../images/no_pay.png'></image>
+      </view>
+      <view class='status_top_right'>
+      <view class="status_top_right_top " wx:if='{{t_order.status==0}}'>等待买家付款</view>
+      <view class="status_top_right_top " wx:if='{{t_order.status==2}}'>等待商家发货</view>
+      <view class="status_top_right_top " wx:if='{{t_order.status==3}}'>商家已发货</view>
+        <view class="status_top_right_top " wx:if='{{t_order.status==4}}'>订单待评价</view>
+        <view class="status_top_right_top " wx:if='{{t_order.status==5}}'>订单已完成</view>
+        <view class="status_top_right_top " wx:if='{{t_order.status==7}}'>订单已取消</view>
+        <view class="status_top_right_top " wx:if='{{t_order.status==8}}'>订单退款中</view>
+        <view class="status_top_right_top " wx:if='{{t_order.status==9}}'>订单退款成功</view>
+        <view class="status_top_right_top " wx:if='{{t_order.status==10}}'>订单退款失败</view>
+        <view class="status_top_right_top right_bottom">
+        <text wx:if='{{t_order.status!=7&&t_order.status!=5&&t_order.status<9}}'>还剩</text>
+        <text wx:if='{{t_order.status>0&&t_order.status!=7&&t_order.status!=5&&t_order.status<9}}'>{{day}}天</text>
+        <text wx:if='{{t_order.status>0&&t_order.status!=7&&t_order.status!=5&&t_order.status<9}}'>{{h}}时</text>
+        <text wx:if='{{t_order.status!=7&&t_order.status!=5&&t_order.status<9}}'>{{m}}分</text>
+        <text wx:if='{{t_order.status!=7&&t_order.status!=5&&t_order.status<9}}'>{{s}}秒</text>
+        <text wx:if='{{t_order.status==0||t_order.status==7}}'>自动取消</text>
+        <text wx:if='{{t_order.status>0&&t_order.status<7}}'>自动完成</text>
+        <!-- <text wx:if='{{}}'>自动取消</text> -->
+        </view>
+      </view>
+    </view>
+    <view class='status_bottom'>
+      <view class='status_bottom_name'>
+        <view class="status_name {{t_order.status>0&&t_order.status<7? 'select':''}}" data-current='0' >买家付款</view>
+        <view class="status_name {{t_order.status>2&&t_order.status<7? 'select':''}}" data-current='1'>商家发货</view>
+        <view class="status_name {{t_order.status>3&&t_order.status<7? 'select':''}}" data-current='2'>交易完成 </view>
+      </view>
+      <view class='status_bottom_line'>
+        <icon wx:if="{{t_order.status>0&&t_order.status<7}}" type="success" size="12" color="#f38e36"/>
+        <view  wx:else class="status_bottom_line_one"></view>
+        <view class="status_bottom_line_two {{t_order.status>2&&t_order.status<7? 'select_on':''}}"></view>
+        <icon wx:if="{{t_order.status>2&&t_order.status<7}}" type="success" size="12" color="#f38e36"  />
+        <view wx:else class="status_bottom_line_one select"></view>
+        <view class="status_bottom_line_two {{t_order.status>3&&t_order.status<7? 'select_on':''}}"></view>
+        <icon wx:if="{{t_order.status>3&&t_order.status<7}}" type="success" size="12" color="#f38e36"  />
+        <view wx:else class="status_bottom_line_one"></view>
+      </view>
+    </view>
+  </view>
+  <!-- 订单内容 -->
+  <view class='order_content'>
+    <view class='store_name'>
+      <image src='../../images/order_home.png'></image>
+      <view>GL好肌友皮肤管理</view>
+    </view>
+    <view class='order_content_list' wx:for='{{t_order.commodity_infoList}}'>
+      <view class='order_content_list_left'>
+        <image src='{{item.img_src}}' mode='widthFix'></image>
+      </view>
+      <view class='order_content_list_center'>
+        {{item.commodity_name}}
+      </view>
+      <view class='order_content_list_right'>
+        <text>￥{{item.commodity_price}}</text>
+        <text>x{{item.comm_num}}</text>
+      </view>
+    </view>
+    <view class='order_sumprice'>
+    
+        <view class='tuikuan' bindtap='refund' data-order_id='{{t_order.order_id}}' wx:if='{{t_order.status==2||t_order.status==3}}'>退款</view>
+        <view class='tuikuan_see' bindtap='refund' data-order_id='{{t_order.order_id}}' wx:if='{{t_order.status>7}}'>查看退款</view>
+      <text style='margin-left:60rpx;'>商品小计：</text>
+      <text class='sum_price'>￥{{t_order.pay_price}}</text>
+    </view>
+  </view>
+  <!-- 留言 -->
+  <view class="order_sumprice order_leave">
+    <text class='leave_title'>买家留言</text>
+    <view class='leave_con'>{{t_order.remarks}}</view>
+  </view>
+  <!-- 商品金额 -->
+  <view class="order_sumprice order_real_price">
+    <text class='leave_title'>商品金额</text>
+    <view class='leave_con'>￥{{t_order.real_price}}</view>
+  </view>
+  <!-- 付款方式 -->
+  <view class="order_sumprice order_style">
+    <text class='leave_title'>付款方式</text>
+    <view class='leave_con'>微信支付</view>
+  </view>
+  <!-- 合计 -->
+  <view class='all_price'>
+    <text>合计：</text>
+    <text class='all_price_color'>￥{{t_order.real_price}}</text>
+  </view>
+  <!-- 客服 -->
+  <view class='online_chat'>
+    <!-- <view class='online_chat_ku'>
+      <image src='../../images/online_img.png'></image>
+      <view class='online_color'>在线客服</view>
+    </view> -->
+    <view class='online_chat_ku'>
+    <image src='../../images/online_img.png'></image>
+    <button open-type='contact'>联系客服</button>
+    </view>
+  </view>
+  <!-- 订单编号 -->
+  <view class='order_number'>
+    <view class="order_number_list">
+      <text>订单编号：</text>
+      <text>{{t_order.order_id}}</text>
+      <!-- <text class='num_copy'>复制</text> -->
+    </view>
+    <view class='order_number_list'>
+      <text>创建时间：</text>
+      <text>{{t_order.order_time}}</text>
+    </view>
+    <view class='order_number_list'wx:if='{{t_order.status!=0&&t_order.status!=7}}' >
+      <text>付款时间：</text>
+      <text>{{t_order.pay_time}}</text>
+    </view>
+    <!-- <view class='order_number_list'>
+      <text>发货时间：</text>
+      <text>2018-10-31 18:12:28</text>
+    </view> -->
+
+    <view class='order_question' bindtap='order_question'>对此订单有疑问？</view>
+
+  </view>
+  <!-- 底部信息 -->
+  <view class='company_remark'>由武汉薇明科技提供技术支持</view>
+</view>

@@ -1,0 +1,65 @@
+<!-- 无订单 -->
+<view class='no_order' wx:if='{{shopNull==1}}'>
+  <view class='no_order_top'>居然还没有订单</view>
+  <view class='no_order_center'>好东西，手慢无</view>
+  <view class='no_order_bottom' bindtap='guangguang'>去逛逛</view>
+</view>
+<!-- ------ -->
+<view class='order_list_all' wx:if='{{shopNull==0}}'>
+  <view class='order_list' wx:for='{{order_content}}' wx:for-item="items" wx:key data-index='{{index}}'>
+    <view class='order_list_top'>
+      <view class='order_list_top_left'>店铺：GL好肌友皮肤管理</view>
+      <view class='order_list_top_right'>{{items.status_name}}</view>
+    </view>
+    <view class='order_list_top_num'>订单编号：{{items.order_id}}</view>
+    <view style='width:100%;' wx:for='{{items.commodity_infoList}}' wx:key>
+      <view class='order_content_list' wx:if="{{index==0}}" data-index='{{index}}'>
+        <view class='order_content_list_left' bindtap='order_details' data-id='{{item.order_id}}'>
+          <image class='order_content_list_img' src='{{item.img_src}}' mode='widthFix'></image>
+          <view class='video_log' wx:if='{{items.eat_type==4}}'>
+            <image src='../../images/vedio.png' mode='aspectFit'></image>
+          </view>
+        </view>
+        <view class='order_content_list_center'>
+          {{item.commodity_name}}
+        </view>
+        <view class='order_content_list_right'>
+          <text>￥{{item.commodity_price}}</text>
+          <text>x{{item.comm_num}}</text>
+        </view>
+      </view>
+      <view class='order_content_list' wx:if="{{index>0&&items.reserved1==1}}" data-index='{{index}}'>
+        <view class='order_content_list_left' bindtap='order_details'>
+          <image src='{{item.img_src}}' mode='widthFix'></image>
+        </view>
+        <view class='order_content_list_center'>
+          {{item.commodity_name}}
+        </view>
+        <view class='order_content_list_right'>
+          <text>￥{{item.commodity_price}}</text>
+          <text>x{{item.comm_num}}</text>
+        </view>
+      </view>
+    </view>
+    <view class='check_all' data-order_id='{{items.order_id}}' wx:if='{{items.reserved2==1}}' bindtap='open_order'>查看全部2件商品</view>
+    <view class='all_price'>
+      <text>合计：</text>
+      <text style='color:#ce6a38'>￥{{items.real_price}}</text>
+    </view>
+    <view class='all_click'>
+      <view class="order_click cancle" wx:if='{{items.status==0}}' bindtap='quxiao' data-status="{{items.status}}" data-order_id='{{items.order_id}}'>取消</view>
+      <view class="order_click pay" wx:if='{{items.status==0}}' bindtap='mypay' data-order_id='{{items.order_id}}'>付款</view>
+      <view class="order_click pay" wx:if='{{items.status==2&&items.store_id!=1}}' bindtap='remind' data-order_id='{{items.order_id}}' data-index='{{index}}'>提醒发货</view>
+      <view class="order_click pay_a" wx:if='{{items.status==2&&items.store_id==1}}'>提醒发货</view>
+      <view class="order_click cancle" wx:if='{{items.status==3}}' bindtap='my_logs' data-order_id='{{items.order_id}}'>查看物流</view>
+      <view class="order_click pay" wx:if='{{items.status==3}}' bindtap='store_sure' data-status="{{items.status}}" data-order_id='{{items.order_id}}'>确认收货</view>
+
+      <view class="order_click pay" wx:if='{{items.status==4}}' bindtap='order_evaluate' data-index='{{index}}' data-status="{{items.status}}" data-order_id='{{items.order_id}}'>评价</view>
+    </view>
+  </view>
+  <!-- 底部提示 -->
+  <view class='order_list_all_bottom' wx:if='{{shopNull==0}}'>
+    <image src='../../images/jingya.png'></image>
+    <text>啊哦，没有更多订单啦</text>
+  </view>
+</view>

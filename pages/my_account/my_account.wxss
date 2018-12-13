@@ -1,0 +1,55 @@
+page{
+  background: #f9f9f9;
+  
+}
+.base_info{
+  background: #fff;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.person_info{
+ width: 94%;
+height: 100rpx;
+border-bottom: 1px solid #efefef;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.person_info_left{
+/* background: pink; */
+font-size: 30rpx;
+color: #121212;
+}
+.person_info_right{
+
+/* border: 1px solid red; */
+display: flex;
+flex-direction: row;
+align-items: center;
+font-size: 30rpx;
+}
+.person_img{
+    width: 80rpx;
+height: 80rpx;
+  border-radius: 50%;
+}
+.base_info_title{
+  width: 94%;
+  height: 100rpx;
+  line-height: 100rpx;
+  margin: 0 auto;
+  font-size: 30rpx;
+  color: #a0a0a0;
+}
+.person_info_right text{
+  font-size: 30rpx;
+  margin-right: 10rpx;
+  color: #747474;
+}
+.info_right{
+  width: 14rpx;
+  height: 30rpx;
+}

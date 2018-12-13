@@ -1,0 +1,31 @@
+<!--pages/my_extend/my_extend.wxml-->
+<view class='my_extend' wx:for='{{my_extend}}'  wx:for-item="items" wx:key wx:if='{{shopNull==0}}'>
+  <view class='my_extend_top'>
+    <view class='my_extend_top_left'>{{items.order_id}}</view>
+    <view class='my_extend_top_right'>{{items.status_name}}</view>
+  </view>
+  <view class='my_extend_con' wx:for='{{items.t_order.commodity_infoList}}' wx:for-item="item">
+    <view class='my_extend_con_left'>
+      <image src='{{item.img_src}}' mode='widthFix'></image>
+    </view>
+    <view class='my_extend_con_right'>
+      <view>{{item.commodity_name}}</view>
+    </view>
+  </view>
+  <view class="my_extend_top money">
+  <view class='my_extend_top_left'><text>佣金：</text><text>（订单总价:￥{{items.price}}）</text></view>
+    <view class='my_extend_top_right'>人工结算</view>
+  </view>
+   <view class="my_extend_top time">
+  <view class='time_left'>{{items.create_time}} </view>
+    <view class='time_right'>{{items.t_order.c_user_info.user_name}}</view>
+  </view>
+</view>
+
+<!-- 推广无商品 -->
+ <view class='no_order' wx:if='{{shopNull==1}}'>
+  <view class='no_order_top'>啊哦，还没有推广哟~</view>
+  <view class='no_order_center'>快去挑点宝贝</view>
+  <view class='no_order_bottom' bindtap='qguang'>去推广</view>
+  <view class='company_remark_if'>由武汉薇明科技提供技术支持</view>
+</view>

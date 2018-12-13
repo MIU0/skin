@@ -1,0 +1,53 @@
+<view  wx:if='{{shopNull==0}}'>
+  <view class='my_address'>
+     <view class='my_address_list'>
+     <radio-group bindchange="setDefault" class="Allselect ">    
+     <block wx:for='{{address_left}}' wx:key>
+        <view class='my_address_list_item' >
+        <!-- 选择框 -->
+         
+        <radio value='{{item.address_id}}' wx:if='{{item.status==1}}'  checked />
+
+          <radio value='{{item.address_id}}' wx:if='{{item.status==0}}' />
+       
+           <!-- 左 -->
+           <view class='my_address_list_item_left'  >
+               <view class='my_address_list_item_left_top'>
+               <view class='my_address_list_item_left_top_name'>{{item.name}},</view>
+                  <view class='my_address_list_item_left_top_phone my_address_common'>{{item.phone}}</view>
+               </view>
+               <view class='my_address_list_item_left_bottom'>         
+                   <view class='my_address_list_item_left_bottom_address'>{{item.province}}{{item.city}}{{item.county}}{{item.details_addr}}</view>
+               </view>
+              
+           </view>
+            
+           <!-- 右 -->
+           <!-- 编辑 -->
+           <view class='my_address_list_item_right'>
+              <view class='my_address_list_item_right_modify' data-address_id="{{item.address_id}}" bindtap='editAddress'>
+                 <image src='../../images/edit_address.png' mode='widthFix'/>
+              </view>
+           </view>
+           <!-- 删除 -->
+           <view class='my_address_list_item_right_del '>
+              <view class='my_address_list_item_right_modify' data-address_id="{{item.address_id}}" bindtap='delAddress' data-id='{{address_id}}'data-index='{{index}}' data-status="{{item.status}}">
+                 <image src='../../images/del.png' mode='aspectFill'/>
+              </view>
+           </view>
+        </view>
+         </block>
+         </radio-group>
+     </view>
+    
+     
+  </view>
+</view>
+<view class='my_address_increase' bindtap='addAddress'>
+       新增地址  
+     </view>
+      <!-- 无地址 -->
+ <view class='no_order' wx:if='{{shopNull==1}}'>
+  <view class='no_order_top'>还没有地址哟~</view>
+  <view class='company_remark_if'>由武汉薇明科技提供技术支持</view>
+</view> 

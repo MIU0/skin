@@ -1,0 +1,28 @@
+<!-- 无订单 -->
+<view class='no_order' wx:if='{{shopNull==1}}'>
+  <!-- <view class='no_order_top'>还没有记录哟~</view> -->
+   <view class='no_order_center'>啊哦，还没有记录哟~</view> 
+  <view class='no_order_bottom'>去充值</view>
+</view>
+<!-- ------ -->
+<view class='record_all' wx:if='{{shopNull==0}}'>
+<view class='my_record'  wx:for="{{my_record}}" wx:key>
+  <view class='my_record_left'>
+    <view class='my_record_left_top' wx:if="{{item.type==1}}">
+      会员充值
+    </view>
+    <view class='my_record_left_top' wx:if="{{item.type==0}}">
+      会员消费
+    </view>
+    <view class='my_record_left_bottom'>
+      {{item.create_time}}
+    </view>
+  </view>
+  <view class='my_record_right'>
+    <view class='my_record_right_add fh' wx:if="{{item.type==1}}">+</view>
+    <view class='my_record_right_add fh' wx:if="{{item.type==0}}">-</view>
+    <view class='my_record_right_price'>{{item.price}}</view>
+  </view>
+</view>
+
+</view>

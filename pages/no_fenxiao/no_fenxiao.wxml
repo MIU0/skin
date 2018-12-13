@@ -1,0 +1,30 @@
+<!--pages/no_fenxiao/no_fenxiao.wxml-->
+<view class='fx_content'>您还不是分销员哟~</view>
+<view class='be_fenxiao' bindtap='be_fenxiao'>
+  成为分销员
+</view>
+<!-- 弹出层 -->
+<view class='fenxiao_pop' catchtouchmove="preventTouchMove" catchtap='closepop' wx:if='{{fenxiao_pop}}'></view>
+<view class='fenxiao_pop_body' wx:if='{{fenxiao_pop}}'>
+  <view class='body_title'>验证信息</view>
+  <view class='body_con'>
+  <view class='body_con_phone'>
+      <text class='body_con_phone_left' decode="{{true}}">姓 &nbsp;&nbsp;名:</text>
+      <input placeholder='请输入姓名' placeholder-class='phone'  name="name" bindblur='name_text'/>
+    </view>
+    <view class='body_con_phone'>
+      <view class='body_con_phone_left'>手机号:</view>
+      <input type='text' placeholder='请输入手机号'  name="phone"  bindblur='phone_num' placeholder-class='phone' />
+    </view>
+    <view class='body_con_phone'>
+      <view class='body_con_phone_left'>验证码:</view>
+      <input type='text'  class='placeholder_num' name="code" bindblur='code_num'/>
+      <button class="get_num " type="primary" size="default"  bindtap='get_num' disabled='{{disabled}}'>{{phone_code}}
+      </button>
+    </view>
+  </view>
+  <view class='body_bottom'>
+  <view bindtap='fx_cancle'>取消</view>
+  <view style='color:#46bc04' bindtap='be_sure'>确认</view>
+  </view>
+</view>

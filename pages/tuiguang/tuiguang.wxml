@@ -1,0 +1,85 @@
+<view class='search'>
+  <view>
+    <image src='../../images/img/search.png'></image>
+    <input type='text' value='商品搜索：请输入商品关键字'></input>
+  </view>
+</view>
+
+<view class='list'>
+  <view class="{{num == 1?'current':''}}" data-num="1" bindtap="clickList">
+    <view data-num="1">佣金</view>
+  </view>
+  <view class="{{num == 2?'current':''}}" data-num="2" bindtap="clickList">
+    <view data-num="2">最新</view>
+  </view>
+  <view class="{{num == 3?'current':''}}" data-num="3" bindtap="clickList">
+    <view data-num="3">最热</view>
+  </view>
+  <view class="{{num == 4?'current':''}}" data-num="4" bindtap="clickList">
+    <view data-num="4">价格</view>
+    <image data-num="4" class="img_xz {{selectArea ? 'rotateafter' :'rotatebefore'}}" src="{{upd2}}"></image>
+  </view>
+</view>
+
+<view class="{{num == 1?'change':''}} content" data-num="1">
+  <view class='content-one'>
+    <view class='content-one-center'>
+      <view>
+        <image src='../../images/head.png'></image>
+      </view>
+      <view>
+        <view>两种坐姿速写示范</view>
+        <view>人工结算</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="{{num == 2?'change':''}} content" data-num="2">
+<view class='content-one'>
+    <view class='content-one-center'>
+      <view>
+        <image src='../../img/bj.png'></image>
+      </view>
+      <view>
+        <view>两种坐姿速写示范</view>
+        <view>人工结算</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="{{num == 3?'change':''}} content" data-num="3">
+<view class='content-one'>
+    <view class='content-one-center'>
+      <view>
+        <image src='../../img/car.png'></image>
+      </view>
+      <view>
+        <view>两种坐姿速写示范</view>
+        <view>人工结算</view>
+      </view>
+    </view>
+  </view></view>
+<view class="{{num == 4?'change':''}} content" data-num="4">
+<view class='content-one'>
+    <view class='content-one-center'>
+      <view>
+        <image src='../../img/msg.png'></image>
+      </view>
+      <view>
+        <view>两种坐姿速写示范</view>
+        <view>人工结算</view>
+      </view>
+    </view>
+  </view></view>
+
+
+
+
+
+<view class='tab'>
+  <view><navigator url='../../pages/fenxiao/fenxiao' open-type="redirect">首页</navigator></view>
+  <view>推广商品</view>
+  <view><navigator url='../../pages/jiesuan/jiesuan' open-type="redirect">结算中心</navigator></view>
+</view>
+<view class='kong'></view>

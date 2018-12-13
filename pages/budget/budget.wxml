@@ -1,0 +1,20 @@
+<!--pages/budget/budget.wxml-->
+<scroll-view scroll-y="true" style="height:100vh;" bindscrolltolower="loadingMore">
+<view class='integral_bottom'>
+  <!-- <view class='integral_bottom_null'>没有更多记录~</view> -->
+  <view class='integral_list' wx:for='{{my_budget}}' wx:key>
+    <view class='integral_list_left'>
+    <view class='integral_source_name'>账户收入</view>
+    <view class='integral_create_time'>{{item.create_time}}</view>
+    </view>
+    <view class='integral_list_right'>+{{item.price}}</view>
+  </view>
+</view>
+<view class="more_data" wx:if="{{inforHasMore=='0'}}">-- 没有更多 --</view>
+<view class='company_remark' >由武汉薇明科技提供技术支持</view>
+</scroll-view>
+<!-- 无商品时 -->
+<view class='no_order' wx:if='{{shopNull==1}}'>
+  <view class='no_order_top'>还没有收入哟~</view>
+  <view class='company_remark_if'>由武汉薇明科技提供技术支持</view>
+</view>

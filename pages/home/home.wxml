@@ -1,0 +1,204 @@
+<view>
+  <!-- 公告栏 -->
+  <view class='top_roll' wx:if='{{top_roll_show==0}}'>
+    <view class='top_roll_left'>
+      <image src='../../images/radio.png' mode="aspectFill"></image>
+    </view>
+    <view class='top_roll_right'>
+      <swiper indicator-dots="{{roll_indicatorDots}}" autoplay="{{autoplay}}" interval="{{roll_interval}}" duration="{{duration}}" vertical="true" circular="true">
+        <block wx:for="{{rollUrls}}" wx:key="key">
+          <swiper-item>
+            <text class="itme_text">{{item.notice}}</text>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view>
+  <!-- 轮播图 -->
+  <swiper class="swiper_view" autoplay="{{autoplay}}" indicator-dots="{{indicatorDots}}" indicator-color="#979b9e" indicator-active-color='#ff965f' interval="{{myinterval}}" duration="{{duration}}" circular="true">
+    <block wx:for='{{imgsUrl}}' wx:key>
+      <swiper-item>
+        <image src="{{item.adver_img}}" mode="aspectFill" data-adver_url="{{item.adver_url}}" bindtap='transition' class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- 首页商品分类第一行 -->
+
+  <view class='store_digest'>
+    <view class='store_digest_info' wx:for='{{all_type}}' wx:key>
+      <view class='store_digest_info_img' data-url="{{item.url}}" bindtap='store_typeone' data-type_id='{{item.type_id}}'>
+        <image src='{{item.img}}' mode="aspectFit"></image>
+      </view>
+      <view class='store_digest_info_name'>{{item.type_name}}</view>
+    </view>
+  </view>
+  <!-- 热销Top3 -->
+  <view class='store_top_title'>
+    <view class='store_top_con'>
+      <view class='title_line'></view>
+      <view class='store_top_con_title'>推荐TOP3</view>
+      <view class='title_line'></view>
+    </view>
+  </view>
+  <view class='store_top'>
+    <view class='store_top_left' wx:for='{{recommend_first}}' wx:key>
+      <view class='store_top_left_name'>{{item.commerce_name}}</view>
+      <image class='store_top_left_img' src='{{item.img_src}}' mode='widthFix' bindtap='shop_details' data-id='{{item.commerce_id}}'> </image>
+    </view>
+    <view class='store_top_right'>
+      <view class='right_top' style='border-bottom:1px solid #dbdbdb;' wx:for='{{recommend_second}}' wx:key>
+        <view class='right_top_name'>{{item.commerce_name}}</view>
+        <image class='right_top_img' src='{{item.img_src}}' mode='widthFix' bindtap='shop_details' data-id='{{item.commerce_id}}'></image>
+      </view>
+      <view class='right_top' wx:for='{{recommend_third}}' wx:key>
+        <view class='right_top_name'>{{item.commerce_name}}</view>
+        <image class='right_top_img' src='{{item.img_src}}' mode='widthFix' bindtap='shop_details' data-id='{{item.commerce_id}}'></image>
+      </view>
+    </view>
+  </view>
+<!-- 推荐商品 -->
+<view class='store_top_title'>
+    <view class='store_top_con'>
+      <view class='title_line'></view>
+      <view class='store_top_con_title'>热销商品</view>
+      <view class='title_line'></view>
+    </view>
+  </view>
+  <!--商品列表 -->
+
+  <view class='store_list'>
+    <view class='store_list_content' wx:for='{{store_list}}' wx:key>
+      <view class='store_list_content_img' data-index='{{index}}' bindtap='shop_details' data-id='{{item.commerce_id}}'>
+        <image src='{{item.img_src}}'></image>
+      </view>
+      <view class='store_list_content_name'>{{item.commerce_name}}</view>
+      <view class='store_list_content_bottom'>
+        <view class='content_bottom_price'>￥{{item.price}}</view>
+        <view class='content_bottom_num'>销量：{{item.sum_num}}</view>
+        <!-- <view class='content_bottom_img' bindtap='gouwu_pop' data-id='{{item.commerce_id}}'>
+          <image src='../../images/gouwu.png'></image>
+        </view> -->
+      </view>
+    </view>
+  </view>
+  <!-- <view class='store_video'>
+    <view class='store_video_left'>教学视频</view>
+    <view class='store_video_right' bindtap='all_video'>
+      <view class="right_titile">全部</view>
+      <view class="right_img">
+        <image src='../../images/right.png'></image>
+      </view>
+    </view>
+  </view> -->
+  <!-- 视频列表 -->
+  <!-- <view class='video_list_all'>
+    <view class='video_list' wx:for='{{video_list}}' wx:key>
+      <view class='video_list_left' bindtap='video_details' data-id='{{item.translate_id}}'>
+        <image src='{{item.img_url}}' mode='widthFix'></image>
+        <view class='video_log'>
+          <image src='../../images/vedio.png' mode='aspectFit'></image>
+        </view>
+      </view>
+      <view class='video_list_right'>
+        <view class='right_one'>
+          {{item.translate_name}}
+        </view>
+        <view class='right_two'>{{item.introduction}}</view>
+        <view class='video_right_bottom'>
+          <view class='video_right_bottom_one'>
+            <view class='bottom_one_time' style=''>{{item.create_time}}</view>
+            <view class='bottom_one_num'>{{item.video_num}}人已看</view>
+          </view>
+          <view class='video_right_bottom_two'>￥{{item.price}}</view>
+        </view>
+      </view>
+    </view>
+  </view> -->
+  <view class='company_remark'>由武汉薇明科技提供技术支持</view>
+</view>
+
+<!-- 点击购物车弹出层 -->
+<view class='store_pop' catchtouchmove="preventTouchMove" catchtap='closepop' wx:if='{{store_pop}}'></view>
+<view class='store_pop_body' wx:if='{{store_pop}}' animation="{{animationData}}">
+  <view class='store_pop_top'>
+    <view class='store_pop_img'>
+      <image src='{{store_pop.img_src}}' mode='widthFix'></image>
+    </view>
+    <view class='store_pop_con'>
+      <view class='store_pop_con_name'>{{store_pop.commerce_name}}</view>
+      <text class='store_pop_con_price'>￥{{store_pop.price}}</text>
+    </view>
+    <view class='store_pop_close' bindtap='close_gouwu'>
+      <image src='../../images/close_a.png'></image>
+    </view>
+  </view>
+  <view class='store_pop_num'>
+    <view class='store_pop_num_left'>
+      <view>购买数量:</view>
+      <view>剩余{{store_pop.stock}}件</view>
+    </view>
+    <view class='store_pop_num_right'>
+      <view class='one_top'>
+        <view class="subtract {{count == 1 ? 'disabled': ''}}" data-index='{{index}}' catchtap='subtracttap'>-</view>
+        <input class='count' type='number' value='{{count}}' disabled='false'></input>
+        <view class='add' data-index="{{index}}" catchtap='addtap'>+</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='store_pop_bottom' wx:if='{{store_pop}}' animation="{{animationData}}">
+  <view bindtap='my_add' data-id='{{store_pop.commerce_id}}' data-count='{{count}}'>加入购物车</view>
+  <view bindtap='buy_now' data-id='{{store_pop.commerce_id}}' data-count='{{count}}'>立即购买</view>
+</view>
+<!-- 获取用户头像昵称 -->
+<view class='person_info' catchtouchmove="preventTouchMove" catchtap='closeperson' wx:if='{{person_info}}'></view>
+<view class='person_info_body' wx:if='{{person_info}}'>
+  <view class='person_info_top'>提示</view>
+  <view class='person_info_con' hidden='{{refuse}}'>
+    <view class='person_info_con_jg'>!</view>
+    <view class='person_info_con_text'>尚未登录，将无法正常使用该程序</view>
+  </view>
+  <view class='person_info_con' hidden='{{no_refuse}}'>
+    <image class='person_info_con_img' src='../../images/logo.png'></image>
+    <view class='person_info_con_text'>是否登录并继续使用该程序</view>
+  </view>
+  <view class='person_info_ts'>
+    <view class='person_info_dian'></view>
+    <view>登录程序需进行微信授权</view>
+  </view>
+  <view class='person_info_button'>
+    <text class='button_one' hidden='{{no_refuse}}' bindtap='refuse'>拒绝</text>
+    <!-- <text class='button_one' hidden='{{refuse}}' bindtap='refuse'>取消</text> -->
+    <button class='button_two' open-type="getUserInfo" bindgetuserinfo="getUserInfo">去登录</button>
+  </view>
+
+</view>
+<!-- 成为分销员后赚 -->
+
+<view class='zhuan' bindtap='zhuan' wx:if="{{zhuan==1}}">赚</view>
+
+<!-- 弹出层 -->
+<view class='zhuan_info' catchtouchmove="preventTouchMove" catchtap='close_zhuan' wx:if='{{zhuan_info}}'></view>
+<view class='zhuan_info_body' wx:if='{{zhuan_info}}'>
+  <view class='zhuan_info_body_top'>立即分享给好友</view>
+  <view class='zhuan_info_body_hint'>朋友通过你分享的页面成功购买后,你可获得相对应的佣金。佣金可在"我的-分销员中心"中查看</view>
+  <view class='zhuan_info_con'>
+    <view class='zhuan_info_con_left'>
+    <button open-type='share' >
+      <image class='zhuan_img' src='../../images/zhuan_weixin.png'></image>
+      </button>
+      <view>微信</view>
+    </view>
+    <view class='zhuan_info_con_left' bindtap='my_code'>
+      <image class='zhuan_img' src='../../images/zhuan_ma.png'></image>
+      <view>二维码</view>
+    </view>
+  </view>
+  <view class='zhuan_btn' bindtap='fenxiao'>我的分销员中心</view>
+</view>
+<!-- 二维码弹出层 -->
+<view class='code_info' catchtouchmove="preventTouchMove" catchtap='close_code' wx:if='{{code_info}}'></view>
+<view class='code_info_body' wx:if='{{code_info}}'>
+<image src='{{my_path.path}}' bindtouchstart='timestart' bindtouchend='timeend' bindtap='saveImg'></image>
+</view>
+<view class='code_info_hint' wx:if='{{code_info}}'>长按图片保存至相册</view>

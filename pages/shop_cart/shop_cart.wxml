@@ -1,0 +1,72 @@
+<!--pages/shop_cart/shop_cart.wxml-->
+<view style='padding-bottom:200rpx;position:relative;' >
+<view class='all_shop_cart'>
+  <view class='shop_cart_title' wx:if='{{shopNull==0}}'>
+    <view class='shop_cart_title_ku' style=''>
+      <view class='shop_cart_title-left'>
+        <icon wx:if="{{selectAllStatus}}" type="success" size="21" color="red" bindtap="selectAll" />
+        <icon wx:else type="circle" color='#a9a9a9' size="21" bindtap="selectAll" />
+        <image class='title_left_img' src='../../images/gw_page.png'></image>
+        <text>GL好肌友皮肤管理</text>
+      </view>
+      <view class='shop_cart_title-right' bindtap='clickMe' value='{{item.count}}'>
+        {{hiddenName?'编辑':'完成'}}
+      </view>
+    </view>
+  </view>
+  <view class='shop_cart_list' wx:for='{{shop_cart_list}}' wx:key>
+    <view class='shop_cart_list_content'>
+      <icon wx:if="{{item.selected}}" type="success" size="21" color="red" bindtap="selectList" data-index="{{index}}" />
+      <icon wx:else type="circle" color='#a9a9a9' size="21" bindtap="selectList" data-index="{{index}}" />
+      <view class='shop_cart_list_content_img'>
+        <image src='{{item.img_src}}' mode='widthFix'></image>
+      </view>
+      <view class='shop_cart_list_content_right' hidden="{{hiddenDe}}">
+        <view class='shop_cart_list_content_right_name'>{{item.commodity_name}}</view>
+        <view class='shop_cart_list_content_right_bottom'>
+          <view class='shop_cart_list_price'>￥{{item.commodity_price}}</view>
+          <view class='shop_cart_list_num'>×{{item.comm_num}}</view>
+        </view>
+      </view>
+      <view class='shop_cart_list_content_righta' hidden="{{hiddenName}}">
+        <view class='content_righta_one'>
+          <view class='one_top'>
+            <view class="subtract {{item.count == 1 ? 'disabled': ''}}" data-index='{{index}}' catchtap='subtracttap' data-commerce_id='{{item.commodity_id}}'>-</view>
+            <input class='count' type='number' value='{{item.comm_num}}' disabled='false'></input>
+            <view class='add' data-index="{{index}}" catchtap='addtap' data-commerce_id='{{item.commodity_id}}'>+</view>
+          </view>
+          <view class='one_bottom'>
+            ￥{{item.commodity_price}}
+          </view>
+        </view>
+        <view class='content_righta_two' data-cart_id="{{item.cart_id}}" bindtap='shop_del'>
+          删除
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>
+<view class='company_remark' wx:if='{{shopNull==0}}'>由武汉薇明科技提供技术支持</view>
+</view>
+<view class='cart_bottom'  wx:if='{{shopNull==0}}'>
+  <view class='cart_bottom_left'>
+    <icon wx:if="{{selectAllStatus}}" type="success" size="21" color="red" bindtap="selectAll" />
+    <icon wx:else type="circle" color='#a9a9a9' size="21" bindtap="selectAll" />
+    <text>全选</text>
+  </view>
+  <view class='cart_bottom_right'>
+    <view class="cart_bottom_right_price ">
+      <text class="price {{cart_bottom == 1 ? 'selectprice': ''}}">合计:￥{{totalPrice}}</text>
+      <text>不含运费</text>
+    </view>
+    <view class="cart_bottom_right_btn {{cart_bottom == 1 ? 'selectnum': ''}}" bindtap='gouwu_js' data-cart_ids='{{cart_ids}}'>结算({{totalNum}})</view>
+  </view>
+</view>
+<!-- 购物车无商品 -->
+ <view class='no_order' wx:if='{{shopNull==1}}'>
+  <view class='no_order_top'>购物车快饿瘪了</view>
+  <view class='no_order_center'>快给我挑点宝贝</view>
+  <view class='no_order_bottom' bindtap='qguang'>去逛逛</view>
+  <view class='company_remark_if'>由武汉薇明科技提供技术支持</view>
+</view> 

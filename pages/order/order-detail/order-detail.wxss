@@ -1,0 +1,26 @@
+page{
+  background-color: #f8f8f8;
+}
+.content{
+  background-color: white;
+  padding:30rpx 30rpx 0 30rpx;
+  box-sizing: border-box;
+  letter-spacing:0.5pt;
+}
+.msg{
+  padding-bottom: 30rpx;
+  box-sizing: border-box;
+}
+.msg .msg-head{
+  font-size: 30rpx;
+  margin-bottom: 20rpx;
+}
+.msg .msg-contain{
+  font-size: 28rpx;
+  color: #999;
+   line-height:1.5em;
+}
+
+.hidden{
+  display: none;
+}

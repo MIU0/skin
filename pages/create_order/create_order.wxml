@@ -1,0 +1,165 @@
+<view>
+  <form>
+    <view class='create_order'>
+      <view class='order_address_time'>
+        <!-- 无收货地址 -->
+        <view class='order_address_mid' wx:if="{{isNull}}" bindtap="myAddress">
+
+          <view class='no_address_left'>
+            <view class='no_address_img'>
+              <image src='../../images/big_add.png'></image>
+            </view>
+            <view class='no_address_text'>新建收货地址</view>
+          </view>
+          <view class='no_address_right'>
+            <image src='../../images/right.png' />
+          </view>
+        </view>
+        <!-- 有收货地址 -->
+        <view class='order_address_mid' bindtap='myAddress' wx:if='{{isShow}}'>
+
+          <view class='order_address_mid_top'>
+            <image class='order_address_mid_lefta' src='../../images/address.png'>
+         </image>
+            <view class='order_address_mid_righta'>
+              <view class='order_address_mid_top_center'>
+                <view class='order_address_mid_left_bottom_name order_common'>收货人：{{userAddress.name}}</view>
+                <view class='order_address_mid_left_bottom_phone order_common'>{{userAddress.phone}}</view>
+              </view>
+              <view class='order_address_mid_bottom_left'>
+                收货地址：{{userAddress.province}}{{userAddress.city}}{{userAddress.county}}{{userAddress.details_addr}}
+              </view>
+            </view>
+          </view>
+
+          <view class='order_address_mid_bottom_right'>
+            <image src='../../images/right.png' />
+          </view>
+        </view>
+
+      </view>
+      <view class='order_address_mid_bottoma'>
+        <image src='../../images/store_del_line.png' mode='widthFix' />
+      </view>
+
+      <!-- 各类订单 -->
+
+      <view class='order_kinds'>
+        <view class='order_content'>
+          <view class='store_name'>
+            <image src='../../images/order_home.png'></image>
+            <view>GL好肌友皮肤管理</view>
+          </view>
+          <view class='order_content_list' wx:for='{{cartList}}' wx:key>
+            <view class='order_content_list_left'>
+              <image src='{{item.img_src}}' mode='widthFix'></image>
+            </view>
+            <view class='order_content_list_center'>
+              {{item.commodity_name}}
+            </view>
+            <view class='order_content_list_right'>
+              <text>￥{{item.commodity_price}}</text>
+              <text>x{{item.comm_num}}</text>
+            </view>
+          </view>
+          <view class='order_sumprice'>
+            <text style='font-size:24rpx;color:#bfbfbf;'>共计1件商品 </text>
+            <text> 小计：</text>
+            <text class='sum_price'>￥{{order_content.com_sum_price}}</text>
+          </view>
+        </view>
+        <view class="transportation_type reduce">
+          <view class='transportation_type_name'>优惠券</view>
+          <view class='transportation_type_right'>
+            <text style='color:red;' wx:if="{{coupons_null==1}}">-￥{{t_coupons.coupons_price}}</text>
+            <text style='color:#343434;' wx:if="{{coupons_null==0}}">无</text>
+          </view>
+        </view>
+        <view class='transportation_type'>
+          <view class='transportation_type_name'>支付方式</view>
+          <view class='my_type' wx:if="{{init_type==0}}">微信支付</view>
+          <view class='my_typea' wx:if="{{pay_type==0&&init_type!=0}}" bindtap='pay_style'>微信支付
+            <image class='no_address_righta' src='../../images/right.png' />
+          </view>
+          <view class='my_typea' wx:if="{{pay_type==1&&init_type!=0}}" bindtap='pay_style'>会员卡支付(余额￥{{c_user_vip.balance}})
+            <image class='no_address_righta' src='../../images/right.png' />
+          </view>
+        </view>
+        <view class="transportation_type peisong">
+          <view class='transportation_type_name'>配送方式</view>
+          <view class='transportation_type_right' style='display:flex;align-items: center;'>
+            <view class="my_type yunfei">
+              <view>普通快递</view>
+            </view>
+          </view>
+        </view>
+        <view class='order_remark'>
+          <view class='remark_left'>买家留言</view>
+
+          <input type='text' class='order_remark_input' name="remarks" bindtap='order_remark_tap' placeholder='建议留言前先和商家沟通确认' placeholder-class='order_input' bindblur="remarks"></input>
+
+        </view>
+      </view>
+
+      <!-- 商品总价 -->
+      <view class='order_subtotal_all'>
+        <view class='order_subtotal'>
+          <view class='order_subtotal_name'>商品总价</view>
+          <view class='order_subtotal_right'>
+            <view class='order_subtotal_right_icon'>￥</view>
+            <view class='order_subtotal_right_num'>{{order_content.sum_price}}</view>
+          </view>
+        </view>
+        <view class='order_express'>
+          <view class='order_express_name'>快递费用</view>
+          <view class='order_express_right'>
+            <view class='order_express_right_icon'>+￥</view>
+            <view class='order_express_right_num'>{{order_content.postage_price}}</view>
+          </view>
+        </view>
+      </view>
+
+
+      <!-- 总额/去支付 -->
+
+      <view class='rental_pay'>
+        <view class='rental_pay_left'>
+          <text>合计: </text>
+          <text>￥</text>
+          <text>{{order_content.sum_price}}</text>
+        </view>
+        <view class='rental_pay_right' bindtap='toPay'>
+          提交订单
+        </view>
+
+      </view>
+    </view>
+  </form>
+</view>
+<!-- 支付方式 -->
+<view class='pay' catchtouchmove="preventTouchMove" catchtap='closepay' wx:if='{{selectpay}}'></view>
+<view class='select_pay' wx:if='{{selectpay}}'>
+  <view class='pay_title'>请选择支付方式</view>
+  <radio-group class="radio-group" bindchange="radioChange">
+    <view wx:if="{{pay_type==0}}">
+      <label class="radio">
+        <radio value="0" checked/>
+        <view class='pay_name'>微信</view>
+      </label>
+      <label class="radio">
+        <radio value="1" />
+        <view class='pay_name'>会员卡(￥{{c_user_vip.balance}})</view>
+      </label>
+    </view>
+    <view wx:if="{{pay_type==1}}">
+      <label class="radio">
+        <radio value="0" />
+        <view class='pay_name'>微信</view>
+      </label>
+      <label class="radio">
+        <radio value="1" checked />
+        <view class='pay_name'>会员卡(￥{{c_user_vip.balance}})</view>
+      </label>
+    </view>
+  </radio-group>
+</view>
